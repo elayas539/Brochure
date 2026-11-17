@@ -1,0 +1,3219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talleres de Formación Docente VRA</title>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add("en-marco")}catch(e){document.documentElement.classList.add("en-marco")}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --f-titulo:"Montserrat","Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-texto:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --fondo:#F3F2F6;
+  --superficie:#FFFFFF;
+  --superficie-2:#F7F5F9;
+  --tinta:#4D2C54;
+  --texto:#1F1A24;
+  --texto-2:#5E5766;
+  --linea:#DDD8E3;
+  --banda-a:#672A60;
+  --banda-b:#4D2C54;
+  --banda-texto:#FFFFFF;
+  --banda-texto-2:#E6D9E8;
+  --banda-celda:rgba(255,255,255,.09);
+  --banda-linea:rgba(255,255,255,.24);
+  --cta:#4D2C54;
+  --cta-texto:#FFFFFF;
+  --cta-hover:#672A60;
+  --foco:#7A3FB8;
+  --pronto:#F1E7F4;
+  --ok:#1F6B2A;
+  --aviso-fondo:#FFF5D6;
+  --aviso-borde:#B8901A;
+  --aviso-texto:#4A3A08;
+  --sombra:0 18px 48px rgba(40,10,40,.28);
+  --mezcla:18%;
+  --oscurecer:#000;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --fondo:#141018;
+    --superficie:#1D1822;
+    --superficie-2:#241E2A;
+    --tinta:#E9DDEE;
+    --texto:#EEE8F1;
+    --texto-2:#B4AABB;
+    --linea:#372E3E;
+    --banda-a:#3E1A3A;
+    --banda-b:#2B1830;
+    --banda-texto:#FFFFFF;
+    --banda-texto-2:#D9CADD;
+    --banda-celda:rgba(255,255,255,.07);
+    --banda-linea:rgba(255,255,255,.18);
+    --cta:#E9DDEE;
+    --cta-texto:#1D1822;
+    --cta-hover:#FFFFFF;
+    --foco:#CDA8FF;
+    --pronto:#3A2A41;
+    --ok:#8FD49A;
+    --aviso-fondo:#2A2412;
+    --aviso-borde:#8F7623;
+    --aviso-texto:#F2E3B3;
+    --sombra:0 18px 48px rgba(0,0,0,.6);
+    --mezcla:24%;
+    --oscurecer:#FFFFFF;
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+html{-webkit-text-size-adjust:100%}
+html.en-marco{height:100%;overflow:hidden}
+html.en-marco body{height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch}
+body{margin:0;background:var(--fondo);color:var(--texto);font-family:var(--f-texto);font-size:1rem;line-height:1.5}
+button,input,select{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--foco);outline-offset:2px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.contenedor{max-width:1160px;margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+svg.ic{width:16px;height:16px;flex:none}
+h1,h2,h3{font-family:var(--f-titulo)}
+
+/* Número de línea formativa (círculo como las insignias del brochure) */
+.num-linea{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;flex:none;background:var(--c);color:var(--ct);
+  font-family:var(--f-titulo);font-weight:800;font-size:.6875rem;line-height:1;box-shadow:0 0 0 1px rgba(0,0,0,.16)}
+.linea-tag{margin:0;display:inline-flex;align-items:center;gap:8px;font-size:.8125rem;font-weight:700;color:var(--texto-2)}
+
+/* Barra de prototipo (solo pruebas internas) */
+.proto{background:var(--aviso-fondo);color:var(--aviso-texto);border-bottom:1px dashed var(--aviso-borde);font-size:.875rem}
+.proto-inner{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding-block:10px}
+.proto strong{font-weight:800}
+.proto label{display:inline-flex;align-items:center;gap:8px}
+.proto input[type=checkbox]{accent-color:var(--aviso-borde);width:16px;height:16px}
+.proto input[type=date]{padding:3px 8px;border:1px solid var(--aviso-borde);border-radius:6px;background:var(--superficie);color:var(--texto)}
+.proto-rapidos{display:flex;flex-wrap:wrap;gap:6px}
+.proto-rapidos button{border:1px solid var(--aviso-borde);background:transparent;color:var(--aviso-texto);border-radius:999px;padding:2px 11px;cursor:pointer}
+.proto-rapidos button[aria-pressed="true"]{background:var(--aviso-borde);color:#fff}
+
+/* Banda superior */
+.banda{background:linear-gradient(100deg,var(--banda-a),var(--banda-b));color:var(--banda-texto);padding-block:clamp(28px,5vw,52px) clamp(24px,4vw,36px)}
+.banda :focus-visible{outline-color:#fff}
+.organiza{margin:0 0 14px;color:var(--banda-texto-2);font-size:.9375rem}
+h1{margin:0;font-weight:800;font-size:clamp(2rem,4.6vw,3.25rem);line-height:1.06;letter-spacing:-.015em;max-width:20ch}
+.periodo{margin:10px 0 0;font-family:var(--f-titulo);font-size:clamp(1.0625rem,2vw,1.35rem);font-weight:700}
+.presentacion{margin:16px 0 0;max-width:72ch;color:var(--banda-texto)}
+.cifras{margin:10px 0 0;max-width:72ch;color:var(--banda-texto-2)}
+
+.tablero{margin:30px 0 0}
+.tablero-cab{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;margin:0 0 10px}
+.tablero-cab h2{margin:0;font-size:1.0625rem;font-weight:700}
+.tablero-cab p{margin:0;color:var(--banda-texto-2);font-size:.9375rem}
+#estado-ciclo{color:var(--banda-texto)}
+.tablero-scroll{overflow-x:auto;padding:4px 2px 8px;margin-inline:-2px}
+.tabla-tablero{width:100%;min-width:700px;table-layout:fixed;border-collapse:separate;border-spacing:4px 5px}
+.tabla-tablero col.col-etq{width:96px}
+.tabla-tablero col.col-sep{width:10px}
+.tabla-tablero th{padding:0;font-weight:400;font-size:.8125rem;color:var(--banda-texto-2)}
+.tabla-tablero th.semana-cab{text-align:left;color:var(--banda-texto);font-family:var(--f-titulo);font-weight:700;padding:0 0 2px 2px;border-bottom:1px solid var(--banda-linea)}
+.tabla-tablero th.dia-cab{text-align:center;line-height:1.15;padding-top:4px}
+.tabla-tablero th.dia-cab span{display:block}
+.tabla-tablero th.dia-cab .num{color:var(--banda-texto);font-size:.9375rem;font-weight:700;margin:1px auto 0;width:max-content;padding:0 6px;border-radius:999px}
+.tabla-tablero th.dia-cab.hoy span:first-child{color:var(--banda-texto);font-weight:700}
+.tabla-tablero th.dia-cab.hoy .num{background:var(--banda-texto);color:var(--banda-b)}
+.tabla-tablero th.dia-cab.feriado span:first-child{color:var(--banda-texto);font-style:italic}
+.tabla-tablero th.dia-cab.pasado span{opacity:.5}
+.tabla-tablero th.franja{text-align:left;color:var(--banda-texto);font-size:.875rem;line-height:1.1}
+.tabla-tablero th.franja small{display:block;color:var(--banda-texto-2);font-size:.75rem}
+.tabla-tablero td{padding:0}
+.celda{height:30px;border-radius:6px;background:var(--banda-celda);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.celda.feriado{background:rgba(255,255,255,.9)}
+td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
+.ficha{flex:1;min-height:0;border:0;padding:0;border-radius:6px;background:var(--eje);color:var(--eje-t);cursor:pointer;
+  font-family:var(--f-titulo);font-weight:800;font-size:.75rem;line-height:1;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.ficha:hover{filter:brightness(1.1)}
+.ficha:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.ficha.apagada{opacity:.16}
+.marco{margin:14px 0 0;font-size:.875rem;color:var(--banda-texto-2);max-width:80ch}
+.leyenda{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.8125rem;color:var(--banda-texto)}
+.leyenda li{display:inline-flex;align-items:center;gap:7px}
+.leyenda .num-linea{box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.leyenda i{width:16px;height:16px;border-radius:5px;flex:none}
+.leyenda .clave-feriado i{background:rgba(255,255,255,.9)}
+.leyenda .clave-vacia i{background:var(--banda-celda);box-shadow:inset 0 0 0 1px var(--banda-linea)}
+.leyenda .clave-otros{color:var(--banda-texto-2)}
+.pista-scroll{display:none;margin:4px 0 0;font-size:.8125rem;color:var(--banda-texto-2)}
+
+.tip{position:fixed;z-index:60;max-width:300px;display:flex;flex-direction:column;gap:3px;background:var(--superficie);color:var(--texto);border:1px solid var(--linea);border-radius:8px;padding:9px 11px;font-size:.8125rem;line-height:1.35;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.tip b{font-weight:700}
+.tip small{color:var(--texto-2)}
+
+/* Antes de inscribirte */
+.participar{padding-block:30px 4px}
+.participar h2{margin:0 0 14px;font-size:1.25rem}
+.participar-lista{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px 26px}
+.participar-lista div{border-top:3px solid var(--tinta);padding-top:10px}
+.participar-lista dt{font-family:var(--f-titulo);font-weight:700;font-size:.9375rem;margin-bottom:4px}
+.participar-lista dd{margin:0;color:var(--texto-2);font-size:.9375rem}
+
+/* Búsqueda y filtros */
+.herramientas{padding-block:26px 6px;display:grid;gap:18px}
+.fila-busqueda{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 16px}
+.buscador{flex:1 1 320px;max-width:560px;display:flex;flex-direction:column;gap:6px}
+.buscador label{font-weight:700}
+.campo{position:relative}
+.campo svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--texto-2);pointer-events:none}
+.campo input{width:100%;padding:10px 12px 10px 40px;border:1px solid var(--linea);border-radius:8px;background:var(--superficie);color:var(--texto)}
+.campo input::placeholder{color:var(--texto-2)}
+.btn.boton-filtros{display:none}
+.grupos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 28px}
+.grupo{border:0;margin:0;padding:0;min-width:0}
+.grupo-linea{grid-column:1/-1}
+.grupo legend{padding:0;margin:0 0 8px;font-weight:700;font-size:.9375rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--linea);background:var(--superficie);border-radius:999px;padding:4px 12px 4px 8px;cursor:pointer;font-size:.875rem;line-height:1.3}
+.chip:not(:has(.num-linea)){padding-left:12px}
+.chip small{color:var(--texto-2);font-size:.75rem}
+.chip .cuenta{min-width:1.4em;text-align:center;font-size:.75rem;font-weight:700;color:var(--texto-2);background:var(--superficie-2);border-radius:999px;padding:0 6px;font-variant-numeric:tabular-nums}
+.chip:hover{border-color:var(--texto-2)}
+.chip[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--superficie)}
+.chip[aria-pressed="true"] small{color:inherit;opacity:.8}
+.chip[aria-pressed="true"] .cuenta{background:transparent;color:inherit}
+.chip[aria-pressed="true"] .num-linea{box-shadow:0 0 0 1.5px var(--superficie)}
+.chip:disabled{opacity:.45;cursor:default}
+.chip:disabled:hover{border-color:var(--linea)}
+.fila-estado{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;border-top:1px solid var(--linea);padding-top:14px}
+#conteo{margin:0;font-weight:700}
+.controles-estado{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
+.check{display:inline-flex;align-items:center;gap:8px;font-size:.9375rem;cursor:pointer}
+.check input{width:17px;height:17px;accent-color:var(--tinta)}
+.btn-texto{border:0;background:none;padding:4px 2px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:.9375rem}
+
+/* Pestañas */
+.vistas{display:flex;gap:2px;border-bottom:1px solid var(--linea);margin-top:22px;overflow-x:auto}
+.vistas button{border:0;background:none;padding:12px 16px;font-weight:700;color:var(--texto-2);border-bottom:3px solid transparent;margin-bottom:-1px;cursor:pointer;white-space:nowrap}
+.vistas button:hover{color:var(--texto)}
+.vistas button[aria-selected="true"]{color:var(--texto);border-bottom-color:var(--tinta)}
+#panel{padding-block:26px 56px}
+
+/* Elementos compartidos */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:8px;padding:8px 14px;font-weight:700;font-size:.9375rem;text-decoration:none;cursor:pointer;border:1px solid transparent;line-height:1.2;white-space:nowrap}
+.btn svg{width:15px;height:15px}
+.btn-primario{background:var(--cta);color:var(--cta-texto)}
+.btn-primario:hover{background:var(--cta-hover)}
+.btn-secundario{background:transparent;border-color:var(--linea);color:var(--texto)}
+.btn-secundario:hover{border-color:var(--texto-2)}
+.enlace-titulo{border:0;background:none;padding:0;margin:0;text-align:left;cursor:pointer;font-weight:700;color:var(--texto);line-height:inherit}
+.enlace-titulo:hover{text-decoration:underline;text-underline-offset:3px}
+.estado{margin:0;font-size:.8125rem;font-weight:700;display:flex;flex-direction:column;gap:2px}
+.estado-pronto > span:first-child{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;background:var(--pronto);padding:2px 9px;border-radius:999px}
+.estado-curso,.estado-realizado{color:var(--texto-2)}
+.inscritos{font-weight:400;color:var(--texto-2);display:inline-flex;align-items:center;gap:5px}
+.nota-estado{font-size:.8125rem;color:var(--texto-2)}
+.vacio{background:var(--superficie);border:1px dashed var(--linea);border-radius:12px;padding:28px;max-width:640px}
+.vacio-titulo{margin:0 0 6px;font-weight:700;font-size:1.0625rem}
+.vacio p{margin:0 0 14px}
+
+/* Vista por línea formativa */
+.grupo-tema + .grupo-tema{margin-top:40px}
+.grupo-tema h2{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0;font-size:1.25rem}
+.grupo-tema h2 .num-linea{width:26px;height:26px;font-size:.8125rem}
+.grupo-tema h2 span.cuantos{font-family:var(--f-texto);font-weight:400;font-size:.9375rem;color:var(--texto-2)}
+.grupo-tema .linea-completa{margin:4px 0 14px 36px;color:var(--texto-2);font-size:.9375rem;max-width:80ch}
+.tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:14px}
+.ticket{display:grid;grid-template-columns:76px minmax(0,1fr);background:var(--superficie);border:1px solid var(--linea);border-radius:12px;overflow:hidden}
+.talon{display:flex;flex-direction:column;align-items:center;padding:16px 6px;text-align:center;background:color-mix(in srgb,var(--eje) var(--mezcla),var(--superficie));border-right:2px dashed color-mix(in srgb,var(--eje) 70%,var(--oscurecer))}
+.talon-dia{font-size:.8125rem;color:var(--texto-2)}
+.talon-num{font-family:var(--f-titulo);font-size:2rem;font-weight:800;line-height:1;margin:3px 0 2px;font-variant-numeric:tabular-nums}
+.talon-mes{font-size:.875rem;font-weight:700}
+.talon-mas{margin-top:10px;font-size:.75rem;line-height:1.2;color:var(--texto-2)}
+.ticket-cuerpo{display:flex;flex-direction:column;gap:9px;padding:14px 16px;min-width:0}
+.ticket-titulo{margin:0;font-size:1.0625rem;line-height:1.3}
+.ticket-titulo .enlace-titulo{font-family:var(--f-titulo);font-weight:700}
+.extracto{margin:0;font-size:.9375rem;color:var(--texto);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.extracto-lista{margin:0;padding:0;list-style:none;font-size:.9375rem}
+.extracto-lista li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.extracto-lista li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 9px 2px 2px;vertical-align:middle;background:color-mix(in srgb,var(--eje) 85%,var(--oscurecer))}
+.extracto-lista li.mas{color:var(--texto-2);font-size:.875rem}
+.extracto-lista li.mas::before{visibility:hidden}
+.meta{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.875rem;color:var(--texto-2)}
+.meta li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:8px;align-items:start}
+.meta svg{margin-top:3px}
+.ticket-pie{margin-top:auto;padding-top:11px;border-top:1px solid var(--linea);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.acciones{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+
+/* Vista por fecha */
+.semana + .semana{margin-top:34px}
+.semana-titulo{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 6px;font-size:1.25rem}
+.semana-titulo span{font-family:var(--f-texto);font-weight:400;font-size:.9375rem;color:var(--texto-2)}
+.dia{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;padding:14px 0;border-top:1px solid var(--linea)}
+.dia-fecha{margin:0;display:flex;flex-direction:column;line-height:1.1}
+.dia-num{font-family:var(--f-titulo);font-size:2.125rem;font-weight:800;font-variant-numeric:tabular-nums}
+.dia-nombre{font-weight:700;margin-top:2px}
+.dia-mes{color:var(--texto-2);font-size:.875rem}
+.marca-hoy{align-self:flex-start;font-size:.75rem;font-weight:700;background:var(--tinta);color:var(--superficie);border-radius:999px;padding:1px 8px;margin-bottom:4px}
+.feriado-nota{margin:0;align-self:center;padding:12px 14px;border:1px dashed var(--linea);border-radius:10px;color:var(--texto-2)}
+.filas{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.fila{display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--superficie);border:1px solid var(--linea);border-left:6px solid color-mix(in srgb,var(--eje) 85%,var(--oscurecer));border-radius:10px;padding:12px 14px}
+.fila-hora{margin:0;color:var(--texto-2);font-variant-numeric:tabular-nums;font-size:.9375rem}
+.fila-hora b{color:var(--texto);font-size:1.0625rem}
+.fila-info{min-width:0}
+.fila-meta{margin:5px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:3px 14px;font-size:.8125rem;color:var(--texto-2)}
+.fila-meta .num-linea{width:18px;height:18px;font-size:.625rem}
+.fila-accion{justify-self:end}
+
+/* Vista por horario */
+.grilla-scroll{overflow-x:auto;margin-top:8px}
+.grilla{width:100%;min-width:780px;table-layout:fixed;border-collapse:separate;border-spacing:6px}
+.grilla col.col-franja{width:104px}
+.grilla thead th{text-align:left;font-size:.875rem;font-weight:700;padding:4px 6px;font-family:var(--f-texto)}
+.grilla thead th small{margin-left:6px;font-size:.75rem;font-weight:700;background:var(--tinta);color:var(--superficie);border-radius:999px;padding:1px 7px}
+.grilla thead th.feriado{color:var(--texto-2);font-style:italic}
+.grilla thead th.pasado{color:var(--texto-2);font-weight:400}
+.grilla tbody th{text-align:left;vertical-align:top;font-size:.875rem;padding:8px 4px;font-family:var(--f-texto)}
+.grilla tbody th small{display:block;color:var(--texto-2);font-weight:400;font-size:.75rem}
+.grilla td{padding:0;vertical-align:top;height:1px}
+.grilla-celda{height:100%;min-height:96px;border-radius:10px;border:1px dashed var(--linea);display:flex;flex-direction:column;gap:6px}
+.grilla-celda.llena{border:0}
+.grilla td.hoy .grilla-celda{box-shadow:0 0 0 2px color-mix(in srgb,var(--tinta) 45%,transparent)}
+.grilla-feriado{height:100%;min-height:300px;border-radius:10px;background:repeating-linear-gradient(135deg,var(--superficie-2) 0 10px,var(--superficie) 10px 20px);border:1px solid var(--linea);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:10px;color:var(--texto-2)}
+.grilla-feriado b{color:var(--texto);font-family:var(--f-titulo)}
+.grilla-feriado span{font-size:.8125rem}
+.bloque{position:relative;flex:1;display:flex;flex-direction:column;gap:5px;text-align:left;border-radius:10px;padding:10px 10px 10px 14px;color:var(--texto);
+  background:color-mix(in srgb,var(--eje) var(--mezcla),var(--superficie));box-shadow:inset 5px 0 0 color-mix(in srgb,var(--eje) 85%,var(--oscurecer))}
+.bloque:hover{background:color-mix(in srgb,var(--eje) calc(var(--mezcla) + 10%),var(--superficie))}
+.bloque-hora{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--texto-2);font-variant-numeric:tabular-nums}
+.bloque-hora .num-linea{width:17px;height:17px;font-size:.625rem}
+.bloque-titulo{border:0;background:none;padding:0;margin:0;text-align:left;cursor:pointer;color:var(--texto);font-weight:700;font-size:.875rem;line-height:1.25}
+.bloque-titulo .clamp{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bloque-titulo::after{content:"";position:absolute;inset:0;border-radius:10px}
+.bloque-titulo:focus-visible{outline:none}
+.bloque-titulo:focus-visible::after{outline:3px solid var(--foco);outline-offset:2px}
+.bloque-meta{font-size:.75rem;color:var(--texto-2)}
+.bloque .btn{position:relative;z-index:1;align-self:flex-start;margin-top:auto}
+.bloque .nota-estado{margin-top:auto}
+.btn-chico{padding:6px 11px;font-size:.8125rem;border-radius:7px;gap:6px}
+.btn-chico svg{width:13px;height:13px}
+
+/* Ficha del taller */
+dialog{border:0;padding:0;width:100%;max-width:min(700px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;border-radius:16px;background:var(--superficie);color:var(--texto);box-shadow:var(--sombra)}
+dialog::backdrop{background:rgba(30,10,30,.6)}
+.det-cab{position:relative;padding:22px 24px 16px;border-top:8px solid var(--eje)}
+.det-cab h2{margin:10px 44px 8px 0;font-size:1.375rem;line-height:1.25}
+.det-cab .linea-tag{flex-wrap:wrap}
+.det-cab .linea-tag small{font-weight:400;font-size:.8125rem;flex-basis:100%;margin-left:28px}
+.cerrar{position:absolute;top:12px;right:12px;width:38px;height:38px;display:grid;place-items:center;border:0;border-radius:8px;background:transparent;cursor:pointer;color:var(--texto)}
+.cerrar:hover{background:var(--superficie-2)}
+.cerrar svg{width:20px;height:20px}
+.det-cuerpo{display:grid;gap:22px;padding:0 24px 6px}
+.det-cuerpo h3{margin:0 0 8px;font-size:1rem}
+.det-cuerpo p{margin:0 0 8px}
+.det-lista{margin:0;padding-left:20px;display:grid;gap:4px}
+.det-sesiones{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.det-sesiones li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;padding:10px 12px;border:1px solid var(--linea);border-radius:10px}
+.det-sesiones b{display:block}
+.det-sesiones span{color:var(--texto-2);font-size:.9375rem}
+.det-sesiones a{display:inline-flex;align-items:center;gap:6px;font-size:.875rem;font-weight:700;text-underline-offset:3px}
+.det-relatoria{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.det-relatoria b{display:block}
+.det-relatoria span{color:var(--texto-2);font-size:.9375rem}
+.det-pie{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px;margin-top:16px;padding:16px 24px 20px;border-top:1px solid var(--linea);position:sticky;bottom:0;background:var(--superficie)}
+
+.pie{border-top:1px solid var(--linea);padding-block:22px 40px;color:var(--texto-2);font-size:.8125rem}
+.pie p{margin:0 0 8px;max-width:100ch}
+
+@media (max-width:760px){
+  .grupos{grid-template-columns:1fr}
+  .btn.boton-filtros{display:inline-flex}
+  .grupos:not(.abierto){display:none}
+  .pista-scroll{display:block}
+  .dia{grid-template-columns:1fr;gap:8px}
+  .dia-fecha{flex-direction:row;align-items:baseline;gap:8px}
+  .dia-num{font-size:1.75rem}
+  .marca-hoy{align-self:center;margin:0}
+  .fila{grid-template-columns:1fr;gap:6px}
+  .fila-accion{justify-self:start}
+  .grupo-tema .linea-completa{margin-left:0}
+}
+@media (prefers-reduced-motion: no-preference){
+  dialog[open]{animation:aparecer .16s ease-out}
+  @keyframes aparecer{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<div class="proto" role="region" aria-label="Opciones del prototipo">
+  <div class="contenedor proto-inner">
+    <strong>Modo prototipo</strong>
+    <label>Fecha simulada de visita <input type="date" id="ref-fecha"></label>
+    <div class="proto-rapidos" id="proto-rapidos"></div>
+    <label><input type="checkbox" id="ver-inscritos"> Mostrar n.º de inscritos</label>
+    <span>Esta barra es solo para probar el modelo.</span>
+  </div>
+</div>
+
+<header class="banda">
+  <div class="contenedor">
+    <p class="organiza" id="organiza"></p>
+    <h1 id="titulo-ciclo"></h1>
+    <p class="periodo" id="periodo"></p>
+    <p class="presentacion" id="presentacion"></p>
+    <p class="cifras" id="cifras"></p>
+    <section class="tablero" aria-labelledby="tablero-titulo">
+      <div class="tablero-cab">
+        <h2 id="tablero-titulo">Calendario del ciclo</h2>
+        <p><span id="estado-ciclo"></span> Selecciona un bloque para ver la ficha del taller.</p>
+      </div>
+      <div class="tablero-scroll"><table class="tabla-tablero" id="tablero"></table></div>
+      <p class="pista-scroll">Desliza el calendario hacia los lados para ver todas las semanas.</p>
+      <p class="marco" id="marco"></p>
+      <ul class="leyenda" id="leyenda"></ul>
+    </section>
+  </div>
+</header>
+
+<main class="contenedor">
+  <section class="participar" id="participar" aria-labelledby="participar-titulo">
+    <h2 id="participar-titulo">Antes de inscribirte</h2>
+    <dl class="participar-lista" id="participar-lista"></dl>
+  </section>
+
+  <section class="herramientas" aria-label="Búsqueda y filtros">
+    <div class="fila-busqueda">
+      <div class="buscador">
+        <label for="q">Buscar un taller</label>
+        <div class="campo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+          <input id="q" type="search" placeholder="Por ejemplo: rúbricas, inclusión, IA" autocomplete="off">
+        </div>
+      </div>
+      <button type="button" class="btn btn-secundario boton-filtros" id="boton-filtros" aria-expanded="false" aria-controls="grupos">Filtros</button>
+    </div>
+    <div class="grupos" id="grupos"></div>
+    <div class="fila-estado">
+      <p id="conteo" aria-live="polite"></p>
+      <div class="controles-estado">
+        <button type="button" class="btn-texto" id="limpiar" hidden>Limpiar filtros</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="vistas" role="tablist" aria-label="Formas de explorar la oferta">
+    <button type="button" role="tab" id="tab-tema" data-vista="tema" aria-controls="panel" aria-selected="true">Por línea formativa</button>
+    <button type="button" role="tab" id="tab-fecha" data-vista="fecha" aria-controls="panel" aria-selected="false" tabindex="-1">Por fecha</button>
+    <button type="button" role="tab" id="tab-horario" data-vista="horario" aria-controls="panel" aria-selected="false" tabindex="-1">Por horario</button>
+  </div>
+  <div id="panel" role="tabpanel" aria-labelledby="tab-tema" tabindex="-1"></div>
+</main>
+
+<footer class="contenedor pie"><p id="pie-participan"></p><p id="pie"></p></footer>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<dialog id="detalle" aria-labelledby="det-titulo"><div id="det-contenido"></div></dialog>
+
+<script id="datos-talleres" type="application/json">
+{
+ "ciclo": {
+  "nombre": "Talleres de Formación Docente VRA",
+  "organiza": "Vicerrectoría Académica UDP, Dirección de Desarrollo Curricular y Docente",
+  "presentacion": "Instancias abiertas a académicas y académicos jornada y por hora de pre y posgrado, y a ayudantes de docencia de la UDP. Brindan un espacio para la reflexión entre pares y la experimentación de herramientas y estrategias para perfeccionar habilidades pedagógicas para la docencia en educación superior, acorde a los lineamientos del Modelo Educativo, el Marco para la Buena Docencia y el Plan Estratégico 2022-2026 de la Universidad.",
+  "dirigido_a": "Académicas y académicos jornada y por hora de pre y posgrado, y ayudantes de docencia de la UDP.",
+  "inscripcion": "Es necesario inscribirse previamente en cada taller de interés, a través de su formulario.",
+  "modalidad": "La mayoría de los talleres se realiza online vía Zoom y algunos en modalidad presencial. El enlace de conexión o la sala se informa por correo a las personas inscritas.",
+  "marco": "Cada taller aporta a una de las 6 líneas formativas del Marco para la Buena Docencia UDP, identificada con su número y color.",
+  "participan": "Dirección de Desarrollo Curricular y Docente; Dirección de Apoyo al Aprendizaje e Inclusión Educativa; Dirección de Educación en Línea; Dirección General de Estudios Generales, Archivos y Cultura UDP; Dirección de Género; Dirección General de Relaciones Internacionales; Departamento de Salud Mental Estudiantil; Facultad de Educación",
+  "zonaHoraria": "America/Santiago",
+  "fechaApertura": "2026-06-30",
+  "fuente": "Gestión equipo Talleres julio 2026",
+  "generado": "2026-11-16"
+ },
+ "lineas": [
+  {
+   "id": 1,
+   "corto": "Planificación y enfoques",
+   "nombre": "Enfoques y organización de la enseñanza. Planificación centrada en el estudiantado.",
+   "color": "#407BBE"
+  },
+  {
+   "id": 2,
+   "corto": "Metodologías",
+   "nombre": "Metodologías de enseñanza – aprendizaje diversas y pertinentes para un aprendizaje activo.",
+   "color": "#3FA535"
+  },
+  {
+   "id": 3,
+   "corto": "Evaluación",
+   "nombre": "Evaluación para el aprendizaje.",
+   "color": "#CD1719"
+  },
+  {
+   "id": 4,
+   "corto": "Clima para la enseñanza",
+   "nombre": "Clima favorable para la enseñanza.",
+   "color": "#FFED00"
+  },
+  {
+   "id": 5,
+   "corto": "Reflexión práctica docente",
+   "nombre": "Reflexión sobre su práctica docente.",
+   "color": "#F08100"
+  },
+  {
+   "id": 6,
+   "corto": "Educación en línea",
+   "nombre": "Educación en línea: herramientas, diseño y metodologías.",
+   "color": "#8A78B6"
+  }
+ ],
+ "feriados": [
+  {
+   "fecha": "2026-07-16",
+   "nombre": "Día de la Virgen del Carmen"
+  }
+ ],
+ "talleres": [
+  {
+   "n": 1,
+   "titulo": "Estudio de los posibles sesgos de Género en la Inteligencia Artificial Generativo",
+   "unidad": "Dirección de Desarrollo Curricular y Docente",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/2rWdvh3vVNDYDG3L6",
+   "sesiones": [
+    {
+     "fecha": "2026-07-13",
+     "inicio": "14:00",
+     "fin": "16:30"
+    }
+   ],
+   "linea": 5,
+   "descripcion": "",
+   "contenidos": [
+    "Operación de los Large Language Model (LLM).",
+    "Sesgos de género.",
+    "El norte global.",
+    "¿Cómo hablan los Large Language Model (LLM)?"
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Alberto Ramírez Martinell",
+     "resena": "Doctor en Investigación Educativa por la Universidad de Lancaster, Inglaterra. Nivel 2 del SNII. Presidente del Consejo Mexicano de Investigación Educativa para el periodo 2026-2027 y Premio Estatal de Ciencia y Tecnología Veracruz 2025 en la categoría «Ciencias de la conducta y la educación»."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     5
+    ],
+    [
+     "2026-07-01",
+     5
+    ],
+    [
+     "2026-07-02",
+     8
+    ],
+    [
+     "2026-07-03",
+     11
+    ],
+    [
+     "2026-07-06",
+     12
+    ],
+    [
+     "2026-07-07",
+     13
+    ],
+    [
+     "2026-07-08",
+     16
+    ],
+    [
+     "2026-07-09",
+     20
+    ],
+    [
+     "2026-07-10",
+     20
+    ],
+    [
+     "2026-07-13",
+     21
+    ]
+   ],
+   "inscritos": 21
+  },
+  {
+   "n": 2,
+   "titulo": "Estrategias docentes para la inclusión de estudiantes en el espectro autista",
+   "unidad": "Dirección de Apoyo al Aprendizaje e Inclusión Educativa",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/PAcKFu4Dovgzir9n9",
+   "sesiones": [
+    {
+     "fecha": "2026-07-14",
+     "inicio": "17:00",
+     "fin": "19:00"
+    }
+   ],
+   "linea": 4,
+   "descripcion": "En este taller se abordarán:",
+   "contenidos": [
+    "Aspectos que influyen en el aprendizaje de estudiantes en el Espectro Autista (EA).",
+    "Procesos de participación y evaluación de estudiantes en el EA.",
+    "Materiales y recursos para favorecer el aprendizaje de estudiantes en el EA."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Felipe Rojas Soto",
+     "resena": "Coordinador de la Unidad de Inclusión Educativa UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     5
+    ],
+    [
+     "2026-07-01",
+     5
+    ],
+    [
+     "2026-07-02",
+     9
+    ],
+    [
+     "2026-07-03",
+     11
+    ],
+    [
+     "2026-07-06",
+     11
+    ],
+    [
+     "2026-07-07",
+     11
+    ],
+    [
+     "2026-07-08",
+     11
+    ],
+    [
+     "2026-07-09",
+     16
+    ],
+    [
+     "2026-07-10",
+     16
+    ],
+    [
+     "2026-07-13",
+     18
+    ],
+    [
+     "2026-07-14",
+     19
+    ]
+   ],
+   "inscritos": 19
+  },
+  {
+   "n": 3,
+   "titulo": "Inteligencia Artificial en el proceso educativo: Creación de prompts y chatbots personalizados",
+   "unidad": "Dirección de Educación en Línea",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/4stbB1Dvk7Lc4VPs6",
+   "sesiones": [
+    {
+     "fecha": "2026-07-15",
+     "inicio": "10:00",
+     "fin": "12:30"
+    }
+   ],
+   "linea": 6,
+   "descripcion": "En este taller se explora el concepto de prompt como mecanismo principal para dar instrucciones a una IA generativa de tipo conversacional (ChatGPT y Gemini). Se realizan demostraciones y ejercicios prácticos vinculados al quehacer docente en tareas tales como adaptar contenidos, planificar clases, entre otros. Lo anterior, considerando elementos tales como errores y sesgos. Esta sesión está destinada a personas que busquen familiarizarse con herramientas de IA generativa y a quienes la usan regularmente y deseen profundizar en los elementos descritos. Los objetivos del taller son:",
+   "contenidos": [
+    "Comprender el rol de los prompts en la interacción con herramientas de IA aplicadas a la educación.",
+    "Explorar una estructura de prompt, sus principios de construcción efectiva y casos de uso con ChatGPT, Gemini y chatbots educativos."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Nicolás Olguín Aguilera",
+     "resena": "Profesional a cargo del Laboratorio en Tecnologías Educativas UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     18
+    ],
+    [
+     "2026-07-01",
+     18
+    ],
+    [
+     "2026-07-02",
+     38
+    ],
+    [
+     "2026-07-03",
+     44
+    ],
+    [
+     "2026-07-06",
+     44
+    ],
+    [
+     "2026-07-07",
+     46
+    ],
+    [
+     "2026-07-08",
+     50
+    ],
+    [
+     "2026-07-09",
+     59
+    ],
+    [
+     "2026-07-10",
+     59
+    ],
+    [
+     "2026-07-13",
+     62
+    ],
+    [
+     "2026-07-14",
+     65
+    ],
+    [
+     "2026-07-15",
+     67
+    ]
+   ],
+   "inscritos": 67
+  },
+  {
+   "n": 4,
+   "titulo": "Planificación centrada en el estudiantado",
+   "unidad": "Dirección de Desarrollo Curricular y Docente",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/RRy1YBaLDtjfRMtt9",
+   "sesiones": [
+    {
+     "fecha": "2026-07-17",
+     "inicio": "10:00",
+     "fin": "12:00"
+    },
+    {
+     "fecha": "2026-07-17",
+     "inicio": "14:00",
+     "fin": "16:00"
+    }
+   ],
+   "linea": 1,
+   "descripcion": "",
+   "contenidos": [
+    "La estructura de una clase con foco en los aprendizajes de las y los estudiantes.",
+    "Actividades de quiebre. Se revisarán ejemplos de actividades de enseñanza – aprendizaje, y también, de evaluación y retroalimentación.",
+    "Ejercicio de planificación de una clase aplicando lo aprendido."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Benjamín Astudillo Ganora",
+     "resena": "Profesional encargado del Centro de Recursos para la Enseñanza y el Aprendizaje, CREA. Dirección de Desarrollo Curricular y Docente, VRA – UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     4
+    ],
+    [
+     "2026-07-01",
+     4
+    ],
+    [
+     "2026-07-02",
+     10
+    ],
+    [
+     "2026-07-03",
+     13
+    ],
+    [
+     "2026-07-06",
+     13
+    ],
+    [
+     "2026-07-07",
+     14
+    ],
+    [
+     "2026-07-08",
+     15
+    ],
+    [
+     "2026-07-09",
+     16
+    ],
+    [
+     "2026-07-10",
+     19
+    ],
+    [
+     "2026-07-13",
+     21
+    ],
+    [
+     "2026-07-14",
+     21
+    ],
+    [
+     "2026-07-15",
+     21
+    ],
+    [
+     "2026-07-17",
+     23
+    ]
+   ],
+   "inscritos": 23
+  },
+  {
+   "n": 5,
+   "titulo": "Evaluación y diseño de rúbricas",
+   "unidad": "Facultad de Educación UDP",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/qjPdWPp7SChGRf9G7",
+   "sesiones": [
+    {
+     "fecha": "2026-07-20",
+     "inicio": "10:00",
+     "fin": "12:30"
+    },
+    {
+     "fecha": "2026-07-23",
+     "inicio": "10:00",
+     "fin": "12:30"
+    }
+   ],
+   "linea": 3,
+   "descripcion": "",
+   "contenidos": [
+    "Relacionar aprendizaje y evaluación.",
+    "Descripción de las características de las rúbricas analíticas.",
+    "Elaboración de rúbricas para la evaluación de aprendizajes complejos y retroalimentación de la docente a cargo."
+   ],
+   "requerimientos": [
+    "Se solicita tener disponible algún instrumento de evaluación utilizado en el semestre, en particular alguna rúbrica si la tuviera."
+   ],
+   "relatores": [
+    {
+     "nombre": "Ruth Arce Jara",
+     "resena": "Directora de la Carrera de Pedagogía Media, Facultad de Educación UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     4
+    ],
+    [
+     "2026-07-01",
+     4
+    ],
+    [
+     "2026-07-02",
+     9
+    ],
+    [
+     "2026-07-03",
+     9
+    ],
+    [
+     "2026-07-06",
+     9
+    ],
+    [
+     "2026-07-07",
+     11
+    ],
+    [
+     "2026-07-08",
+     11
+    ],
+    [
+     "2026-07-09",
+     14
+    ],
+    [
+     "2026-07-10",
+     15
+    ],
+    [
+     "2026-07-13",
+     17
+    ],
+    [
+     "2026-07-14",
+     17
+    ],
+    [
+     "2026-07-15",
+     18
+    ],
+    [
+     "2026-07-17",
+     18
+    ],
+    [
+     "2026-07-20",
+     21
+    ]
+   ],
+   "inscritos": 21
+  },
+  {
+   "n": 6,
+   "titulo": "Accesibilidad en materiales y recursos pedagógicos",
+   "unidad": "Dirección de Apoyo al Aprendizaje e Inclusión Educativa",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/ucqoXHXZL4KEewqS7",
+   "sesiones": [
+    {
+     "fecha": "2026-07-20",
+     "inicio": "14:00",
+     "fin": "16:30"
+    }
+   ],
+   "linea": 4,
+   "descripcion": "",
+   "contenidos": [
+    "Accesibilidad en contexto universitario.",
+    "Accesibilidad universal como principio inclusivo.",
+    "Accesibilidad sensorial.",
+    "Accesibilidad cognitiva."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Felipe Rojas Soto",
+     "resena": "Coordinador de la Unidad de Inclusión Educativa UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     2
+    ],
+    [
+     "2026-07-01",
+     2
+    ],
+    [
+     "2026-07-02",
+     3
+    ],
+    [
+     "2026-07-03",
+     4
+    ],
+    [
+     "2026-07-06",
+     4
+    ],
+    [
+     "2026-07-07",
+     4
+    ],
+    [
+     "2026-07-08",
+     4
+    ],
+    [
+     "2026-07-09",
+     4
+    ],
+    [
+     "2026-07-10",
+     5
+    ],
+    [
+     "2026-07-13",
+     5
+    ],
+    [
+     "2026-07-14",
+     5
+    ],
+    [
+     "2026-07-15",
+     5
+    ],
+    [
+     "2026-07-17",
+     5
+    ],
+    [
+     "2026-07-20",
+     6
+    ]
+   ],
+   "inscritos": 6
+  },
+  {
+   "n": 7,
+   "titulo": "Estrategias de evaluación de los aprendizajes enriquecidas con IA",
+   "unidad": "Dirección de Desarrollo Curricular y Docente",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/ZSrRs5Kz3JuZSUGj9",
+   "sesiones": [
+    {
+     "fecha": "2026-07-20",
+     "inicio": "17:00",
+     "fin": "19:00"
+    },
+    {
+     "fecha": "2026-07-21",
+     "inicio": "17:00",
+     "fin": "19:00"
+    },
+    {
+     "fecha": "2026-07-23",
+     "inicio": "17:00",
+     "fin": "19:00"
+    }
+   ],
+   "linea": 3,
+   "descripcion": "",
+   "contenidos": [
+    "La evaluación formativa y la retroalimentación como foco en el proceso de aprendizaje.",
+    "Elementos clave a considerar para la integración y modelamiento de herramientas enriquecidas con IA en el desarrollo de instancias de evaluación.",
+    "Desarrollo de estrategias de evaluación para intencionar procesos de aprendizaje dinámicos y colaborativos."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Bernardita Urzúa",
+     "resena": "Profesora de Lenguaje y Comunicación, Magíster en Educación mención Dirección y Liderazgo Escolar."
+    },
+    {
+     "nombre": "Benjamín Astudillo",
+     "resena": "Profesional encargado del Centro de Recursos para la Enseñanza y el Aprendizaje, CREA-UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     6
+    ],
+    [
+     "2026-07-01",
+     6
+    ],
+    [
+     "2026-07-02",
+     10
+    ],
+    [
+     "2026-07-03",
+     17
+    ],
+    [
+     "2026-07-06",
+     17
+    ],
+    [
+     "2026-07-07",
+     17
+    ],
+    [
+     "2026-07-08",
+     21
+    ],
+    [
+     "2026-07-09",
+     26
+    ],
+    [
+     "2026-07-10",
+     27
+    ],
+    [
+     "2026-07-13",
+     28
+    ],
+    [
+     "2026-07-14",
+     31
+    ],
+    [
+     "2026-07-15",
+     32
+    ],
+    [
+     "2026-07-17",
+     33
+    ],
+    [
+     "2026-07-20",
+     35
+    ]
+   ],
+   "inscritos": 35
+  },
+  {
+   "n": 8,
+   "titulo": "Diseñar y conducir el trabajo en grupos pequeños",
+   "unidad": "Facultad de Educación UDP",
+   "modalidad": "Presencial",
+   "inscripcion": "https://forms.gle/Z9MyDetjy18NRqPQ8",
+   "sesiones": [
+    {
+     "fecha": "2026-07-21",
+     "inicio": "10:00",
+     "fin": "12:30"
+    }
+   ],
+   "linea": 2,
+   "descripcion": "En este taller se abordarán los principales fundamentos y estrategias para diseñar y guiar el trabajo en grupos pequeños en el aula universitaria. Se revisarán principios como la naturaleza de la tarea y la interdependencia del trabajo entre estudiantes, la asignación de roles y la delegación de autoridad, junto a las posibles dificultades que se pueden presentar al trabajar con esta práctica. Finalmente, las y los participantes diseñarán una actividad de trabajo en grupos pequeños para su curso.",
+   "contenidos": [],
+   "requerimientos": [
+    "Se solicita llevar el programa de asignatura y computador personal."
+   ],
+   "relatores": [
+    {
+     "nombre": "Daniela Díaz",
+     "resena": "Docente de la carrera Pedagogía en Educación General Básica y profesional de la Dirección de Docencia, Facultad de Educación UDP."
+    },
+    {
+     "nombre": "Jorge Marchant",
+     "resena": "Director de Docencia, Facultad de Educación UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     3
+    ],
+    [
+     "2026-07-01",
+     3
+    ],
+    [
+     "2026-07-02",
+     10
+    ],
+    [
+     "2026-07-03",
+     11
+    ],
+    [
+     "2026-07-06",
+     11
+    ],
+    [
+     "2026-07-07",
+     13
+    ],
+    [
+     "2026-07-08",
+     14
+    ],
+    [
+     "2026-07-09",
+     14
+    ],
+    [
+     "2026-07-10",
+     14
+    ],
+    [
+     "2026-07-13",
+     14
+    ],
+    [
+     "2026-07-14",
+     14
+    ],
+    [
+     "2026-07-15",
+     15
+    ],
+    [
+     "2026-07-17",
+     15
+    ],
+    [
+     "2026-07-20",
+     17
+    ],
+    [
+     "2026-07-21",
+     17
+    ]
+   ],
+   "inscritos": 17
+  },
+  {
+   "n": 9,
+   "titulo": "Proceso investigativo en docencia universitaria con uso de IA",
+   "unidad": "Dirección de Desarrollo Curricular y Docente, con la Facultad de Educación",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/wsiWgQsxSkvbQp5RA",
+   "sesiones": [
+    {
+     "fecha": "2026-07-22",
+     "inicio": "10:00",
+     "fin": "12:30"
+    },
+    {
+     "fecha": "2026-07-27",
+     "inicio": "10:00",
+     "fin": "12:30"
+    }
+   ],
+   "linea": 5,
+   "descripcion": "Este taller abordará el proceso de investigación en docencia universitaria a partir del desarrollo de proyectos de innovación transformados en productos investigativos. A través de una metodología práctica, se explorará cómo utilizar herramientas de inteligencia artificial para fortalecer la calidad metodológica, la sistematización de datos y la replicabilidad de los hallazgos. Se reflexionará sobre los desafíos epistemológicos y éticos del uso de IA en el marco de la investigación en docencia, considerando su capacidad para potenciar la construcción de conocimiento situado y riguroso en contextos universitarios.",
+   "contenidos": [],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Dra. Isadora Reynolds C.",
+     "resena": "Académica de la Facultad de Letras de la Pontificia Universidad Católica de Chile y del Departamento de Lingüística y Literatura de la Universidad de Santiago de Chile."
+    },
+    {
+     "nombre": "Carolina Órdenes",
+     "resena": "Académica de Pedagogía en Inglés de la Universidad Diego Portales y de la Facultad de Educación de la Pontificia Universidad Católica de Chile."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     11
+    ],
+    [
+     "2026-07-01",
+     11
+    ],
+    [
+     "2026-07-02",
+     18
+    ],
+    [
+     "2026-07-03",
+     23
+    ],
+    [
+     "2026-07-06",
+     24
+    ],
+    [
+     "2026-07-07",
+     27
+    ],
+    [
+     "2026-07-08",
+     31
+    ],
+    [
+     "2026-07-09",
+     35
+    ],
+    [
+     "2026-07-10",
+     36
+    ],
+    [
+     "2026-07-13",
+     38
+    ],
+    [
+     "2026-07-14",
+     40
+    ],
+    [
+     "2026-07-15",
+     41
+    ],
+    [
+     "2026-07-17",
+     42
+    ],
+    [
+     "2026-07-20",
+     44
+    ],
+    [
+     "2026-07-21",
+     45
+    ],
+    [
+     "2026-07-22",
+     48
+    ]
+   ],
+   "inscritos": 48
+  },
+  {
+   "n": 10,
+   "titulo": "Enseñar para integrar: De la idea a la acción ID/TD",
+   "unidad": "Espacio Vértice",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/D5Ty3GLURbvhncWN6",
+   "sesiones": [
+    {
+     "fecha": "2026-07-22",
+     "inicio": "14:00",
+     "fin": "16:30"
+    }
+   ],
+   "linea": 1,
+   "descripcion": "Este taller propone un espacio práctico y guiado para que docentes diseñen una actividad de aprendizaje con enfoque inter o transdisciplinar aplicada a sus propios cursos. Se trabajará paso a paso en la formulación de un problema complejo, la articulación de saberes desde distintas disciplinas y la construcción de una actividad que promueva la integración de perspectivas en el aula. El propósito es que cada participante finalice la sesión con un diseño listo para ser implementado, acompañado de herramientas metodológicas simples, ejemplos aplicados y criterios básicos para evaluar la integración disciplinar en los aprendizajes estudiantiles.",
+   "contenidos": [],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Laura Encalada",
+     "resena": "Coordinadora de transdisciplina, Vértice UDP."
+    },
+    {
+     "nombre": "Paloma Henríquez",
+     "resena": "Coordinadora de difusión, Vértice UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     2
+    ],
+    [
+     "2026-07-01",
+     2
+    ],
+    [
+     "2026-07-02",
+     3
+    ],
+    [
+     "2026-07-03",
+     3
+    ],
+    [
+     "2026-07-06",
+     3
+    ],
+    [
+     "2026-07-07",
+     4
+    ],
+    [
+     "2026-07-08",
+     7
+    ],
+    [
+     "2026-07-09",
+     10
+    ],
+    [
+     "2026-07-10",
+     10
+    ],
+    [
+     "2026-07-13",
+     12
+    ],
+    [
+     "2026-07-14",
+     13
+    ],
+    [
+     "2026-07-15",
+     13
+    ],
+    [
+     "2026-07-17",
+     13
+    ],
+    [
+     "2026-07-20",
+     13
+    ],
+    [
+     "2026-07-21",
+     17
+    ],
+    [
+     "2026-07-22",
+     18
+    ]
+   ],
+   "inscritos": 18
+  },
+  {
+   "n": 11,
+   "titulo": "Estrategias conversacionales en inglés para una experiencia integradora en instancias académicas semiformales",
+   "unidad": "Programa de Inglés General, Departamento de Estudios Generales UDP",
+   "modalidad": "Presencial",
+   "inscripcion": "https://forms.gle/i9ADJbcWahHoZEMb9",
+   "sesiones": [
+    {
+     "fecha": "2026-07-23",
+     "inicio": "14:00",
+     "fin": "16:30"
+    }
+   ],
+   "linea": 2,
+   "descripcion": "Uso del inglés en contextos académicos semiformales. Expresiones de uso común para interactuar con otros/as académicos/as. Aspectos paralingüísticos para una comunicación e integración efectiva en instancias semiformales. Metodología PBA: simulación de situaciones, identificación de necesidades, entrega de conocimientos y herramientas para su solución.",
+   "contenidos": [],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Marcela Palominos",
+     "resena": "Coordinadora Académica y Docente, Programa Inglés UDP."
+    },
+    {
+     "nombre": "Quirian Sani",
+     "resena": "Coordinadora Académica y Docente, Programa Inglés UDP."
+    },
+    {
+     "nombre": "Adolfo Aceituno",
+     "resena": "Coordinador Académico y Docente, Programa Inglés UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     1
+    ],
+    [
+     "2026-07-01",
+     1
+    ],
+    [
+     "2026-07-02",
+     3
+    ],
+    [
+     "2026-07-03",
+     4
+    ],
+    [
+     "2026-07-06",
+     4
+    ],
+    [
+     "2026-07-07",
+     4
+    ],
+    [
+     "2026-07-08",
+     5
+    ],
+    [
+     "2026-07-09",
+     7
+    ],
+    [
+     "2026-07-10",
+     7
+    ],
+    [
+     "2026-07-13",
+     7
+    ],
+    [
+     "2026-07-14",
+     7
+    ],
+    [
+     "2026-07-15",
+     7
+    ],
+    [
+     "2026-07-17",
+     7
+    ],
+    [
+     "2026-07-20",
+     9
+    ],
+    [
+     "2026-07-21",
+     13
+    ],
+    [
+     "2026-07-22",
+     14
+    ],
+    [
+     "2026-07-23",
+     14
+    ]
+   ],
+   "inscritos": 14
+  },
+  {
+   "n": 12,
+   "titulo": "Docencia en el primer año universitario",
+   "unidad": "Dirección de Desarrollo Curricular y Docente VRA",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/cnxFN7FtP9hdd8198",
+   "sesiones": [
+    {
+     "fecha": "2026-07-24",
+     "inicio": "10:00",
+     "fin": "12:30"
+    }
+   ],
+   "linea": 1,
+   "descripcion": "",
+   "contenidos": [
+    "Desafíos de la docencia en primer año.",
+    "Principios relevantes para favorecer el aprendizaje en primer año.",
+    "Estrategias de enseñanza para la docencia en primer año."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Isabel Ramos Moore",
+     "resena": "Directora de Desarrollo Curricular y Docente – VRA UDP."
+    },
+    {
+     "nombre": "Verónica Polanco Connell",
+     "resena": "Psicóloga educacional, docente universitaria."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     8
+    ],
+    [
+     "2026-07-01",
+     8
+    ],
+    [
+     "2026-07-02",
+     13
+    ],
+    [
+     "2026-07-03",
+     13
+    ],
+    [
+     "2026-07-06",
+     13
+    ],
+    [
+     "2026-07-07",
+     13
+    ],
+    [
+     "2026-07-08",
+     13
+    ],
+    [
+     "2026-07-09",
+     14
+    ],
+    [
+     "2026-07-10",
+     15
+    ],
+    [
+     "2026-07-13",
+     15
+    ],
+    [
+     "2026-07-14",
+     16
+    ],
+    [
+     "2026-07-15",
+     19
+    ],
+    [
+     "2026-07-17",
+     19
+    ],
+    [
+     "2026-07-20",
+     20
+    ],
+    [
+     "2026-07-21",
+     21
+    ],
+    [
+     "2026-07-22",
+     22
+    ],
+    [
+     "2026-07-23",
+     24
+    ],
+    [
+     "2026-07-24",
+     24
+    ]
+   ],
+   "inscritos": 24
+  },
+  {
+   "n": 13,
+   "titulo": "Aprendizaje Vinculado al Medio, ¿cómo incorporarlo en nuestros cursos?",
+   "unidad": "Dirección de Desarrollo Curricular y Docente",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/tYufA6EXb1rdWcUz5",
+   "sesiones": [
+    {
+     "fecha": "2026-07-27",
+     "inicio": "14:00",
+     "fin": "16:30"
+    },
+    {
+     "fecha": "2026-07-28",
+     "inicio": "10:00",
+     "fin": "12:30"
+    }
+   ],
+   "linea": 2,
+   "descripcion": "",
+   "contenidos": [
+    "La Vinculación con el Medio y la integración de funciones de docencia y extensión universitaria: aspectos teóricos, conceptuales y aplicados.",
+    "Metodologías de aprendizaje y evaluación para la implementación de actividades académicas que incorporan enfoque en vinculación con el medio.",
+    "Diseño de proyectos de docencia con enfoque de Aprendizaje vinculado al medio."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Nicolás Peña Fredes",
+     "resena": "Coordinador del área de Vinculación Territorial y Formación en Extensión en la Vicerrectoría de Extensión y Comunicaciones de la Universidad de Chile."
+    },
+    {
+     "nombre": "Bárbara Azcárraga",
+     "resena": "Profesional del área de Vinculación Territorial y Formación en Extensión en la Vicerrectoría de Extensión y Comunicaciones de la Universidad de Chile."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     2
+    ],
+    [
+     "2026-07-01",
+     2
+    ],
+    [
+     "2026-07-02",
+     6
+    ],
+    [
+     "2026-07-03",
+     6
+    ],
+    [
+     "2026-07-06",
+     6
+    ],
+    [
+     "2026-07-07",
+     9
+    ],
+    [
+     "2026-07-08",
+     9
+    ],
+    [
+     "2026-07-09",
+     10
+    ],
+    [
+     "2026-07-10",
+     12
+    ],
+    [
+     "2026-07-13",
+     12
+    ],
+    [
+     "2026-07-14",
+     14
+    ],
+    [
+     "2026-07-15",
+     15
+    ],
+    [
+     "2026-07-17",
+     15
+    ],
+    [
+     "2026-07-20",
+     15
+    ],
+    [
+     "2026-07-21",
+     15
+    ],
+    [
+     "2026-07-22",
+     15
+    ],
+    [
+     "2026-07-23",
+     15
+    ],
+    [
+     "2026-07-24",
+     17
+    ],
+    [
+     "2026-07-27",
+     18
+    ]
+   ],
+   "inscritos": 18
+  },
+  {
+   "n": 14,
+   "titulo": "Abrazando la Diversidad Universitaria desde la Evaluación",
+   "unidad": "Dirección de Apoyo al Aprendizaje e Inclusión Educativa",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/HvNmU93ZbiZisyy16",
+   "sesiones": [
+    {
+     "fecha": "2026-07-28",
+     "inicio": "17:00",
+     "fin": "19:00"
+    },
+    {
+     "fecha": "2026-07-29",
+     "inicio": "17:00",
+     "fin": "19:00"
+    }
+   ],
+   "linea": 4,
+   "descripcion": "",
+   "contenidos": [
+    "Sesión 1. Fundamentos y desafíos de la evaluación inclusiva universitaria: gestión de supuestos y evolución de la inclusión; del modelo médico al posicionamiento anticapacitista; la evaluación formativa como motor de equidad; evaluación institucional y sistemas de apoyo (Alertas Académicas).",
+    "Sesión 2. Estrategias prácticas e instrumentos para el aula: taxonomía de ajustes y diversificación de formatos; el estudiante como socio (codiseño y aprendizaje dialógico); rúbricas inclusivas en la evaluación por competencias; herramientas de seguimiento del clima y avance grupal."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Miriam Ferrando",
+     "resena": "Profesora de Educación Básica, Magíster en Escritura y Alfabetización y Doctora(c) en Educación. Especialista en inclusión educativa, evaluación para el aprendizaje y alfabetización inicial, con amplia experiencia en educación superior, gestión académica y formación docente."
+    },
+    {
+     "nombre": "Felipe Rojas Soto",
+     "resena": "Coordinador de la Unidad de Inclusión Educativa UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     1
+    ],
+    [
+     "2026-07-01",
+     1
+    ],
+    [
+     "2026-07-02",
+     3
+    ],
+    [
+     "2026-07-03",
+     3
+    ],
+    [
+     "2026-07-06",
+     3
+    ],
+    [
+     "2026-07-07",
+     3
+    ],
+    [
+     "2026-07-08",
+     4
+    ],
+    [
+     "2026-07-09",
+     4
+    ],
+    [
+     "2026-07-10",
+     4
+    ],
+    [
+     "2026-07-13",
+     4
+    ],
+    [
+     "2026-07-14",
+     4
+    ],
+    [
+     "2026-07-15",
+     4
+    ],
+    [
+     "2026-07-17",
+     4
+    ],
+    [
+     "2026-07-20",
+     4
+    ],
+    [
+     "2026-07-21",
+     5
+    ],
+    [
+     "2026-07-22",
+     5
+    ],
+    [
+     "2026-07-23",
+     5
+    ],
+    [
+     "2026-07-24",
+     5
+    ],
+    [
+     "2026-07-27",
+     6
+    ],
+    [
+     "2026-07-28",
+     6
+    ]
+   ],
+   "inscritos": 6
+  },
+  {
+   "n": 15,
+   "titulo": "Salud mental universitaria: desafíos y herramientas para fomentar el bienestar",
+   "unidad": "Departamento de Salud Mental Estudiantil UDP",
+   "modalidad": "Presencial",
+   "inscripcion": "https://forms.gle/jNWCHCjQ2wHpSrGU9",
+   "sesiones": [
+    {
+     "fecha": "2026-07-29",
+     "inicio": "10:00",
+     "fin": "12:30"
+    }
+   ],
+   "linea": 4,
+   "descripcion": "El taller está orientado a entregar orientaciones sobre salud mental universitaria, presentando datos generales y del Departamento de Salud Mental Estudiantil. Además, se entregarán herramientas para identificar señales de alerta en estudiantes, fomentar ambientes de aprendizaje saludables y conocer estrategias de autocuidado. Se realizará una metodología participativa con la finalidad de conocer buenas prácticas docentes en temáticas de salud mental orientadas al estudiantado.",
+   "contenidos": [],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Nicole Martínez",
+     "resena": "Coordinadora de Prevención, Departamento de Salud Mental Estudiantil UDP."
+    },
+    {
+     "nombre": "Catherine De La Rosa",
+     "resena": "Psicóloga."
+    },
+    {
+     "nombre": "María Jesús Pavéz",
+     "resena": "Psicóloga."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     3
+    ],
+    [
+     "2026-07-01",
+     3
+    ],
+    [
+     "2026-07-02",
+     6
+    ],
+    [
+     "2026-07-03",
+     7
+    ],
+    [
+     "2026-07-06",
+     7
+    ],
+    [
+     "2026-07-07",
+     8
+    ],
+    [
+     "2026-07-08",
+     10
+    ],
+    [
+     "2026-07-09",
+     13
+    ],
+    [
+     "2026-07-10",
+     13
+    ],
+    [
+     "2026-07-13",
+     16
+    ],
+    [
+     "2026-07-14",
+     16
+    ],
+    [
+     "2026-07-15",
+     16
+    ],
+    [
+     "2026-07-17",
+     16
+    ],
+    [
+     "2026-07-20",
+     16
+    ],
+    [
+     "2026-07-21",
+     16
+    ],
+    [
+     "2026-07-22",
+     17
+    ],
+    [
+     "2026-07-23",
+     17
+    ],
+    [
+     "2026-07-24",
+     17
+    ],
+    [
+     "2026-07-27",
+     18
+    ],
+    [
+     "2026-07-28",
+     18
+    ],
+    [
+     "2026-07-29",
+     18
+    ]
+   ],
+   "inscritos": 18
+  },
+  {
+   "n": 16,
+   "titulo": "Aprendizaje Colaborativo Internacional en Línea (COIL) para una internacionalización inclusiva y transversal",
+   "unidad": "Dirección General de Relaciones Internacionales UDP",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/DHmhKX7rqW6fXwqW6",
+   "sesiones": [
+    {
+     "fecha": "2026-07-29",
+     "inicio": "14:00",
+     "fin": "16:00"
+    },
+    {
+     "fecha": "2026-07-30",
+     "inicio": "14:00",
+     "fin": "16:00"
+    }
+   ],
+   "linea": 2,
+   "descripcion": "",
+   "contenidos": [
+    "Sensibilizar al cuerpo docente sobre la importancia de la internacionalización «en casa» y del currículum, además de explicitar sus aportes a una docencia de calidad con una visión global, en el marco de la internacionalización universitaria.",
+    "Lograr una comprensión de la diferencia entre el intercambio y la movilidad virtual, sus beneficios y formas de incorporarlos en la docencia.",
+    "Explicar y enseñar sobre la metodología «Collaborative Online International Learning - COIL» como una modalidad del intercambio virtual anclado dentro de una asignatura existente: su uso, alcances y beneficios para una docencia con sello internacional."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Carlos Ahumada Benavides",
+     "resena": "Coordinador de Formación Global y Convenios Internacionales, Dirección de Relaciones Internacionales UDP."
+    },
+    {
+     "nombre": "Anoek van den Berg",
+     "resena": "Directora General de Relaciones Internacionales UDP."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     3
+    ],
+    [
+     "2026-07-01",
+     3
+    ],
+    [
+     "2026-07-02",
+     9
+    ],
+    [
+     "2026-07-03",
+     10
+    ],
+    [
+     "2026-07-06",
+     10
+    ],
+    [
+     "2026-07-07",
+     11
+    ],
+    [
+     "2026-07-08",
+     11
+    ],
+    [
+     "2026-07-09",
+     13
+    ],
+    [
+     "2026-07-10",
+     13
+    ],
+    [
+     "2026-07-13",
+     14
+    ],
+    [
+     "2026-07-14",
+     15
+    ],
+    [
+     "2026-07-15",
+     16
+    ],
+    [
+     "2026-07-17",
+     16
+    ],
+    [
+     "2026-07-20",
+     16
+    ],
+    [
+     "2026-07-21",
+     16
+    ],
+    [
+     "2026-07-22",
+     18
+    ],
+    [
+     "2026-07-23",
+     19
+    ],
+    [
+     "2026-07-24",
+     19
+    ],
+    [
+     "2026-07-27",
+     19
+    ],
+    [
+     "2026-07-28",
+     19
+    ],
+    [
+     "2026-07-29",
+     19
+    ]
+   ],
+   "inscritos": 19
+  },
+  {
+   "n": 17,
+   "titulo": "Enfoque de género y masculinidades en el contexto universitario: superando el androcentrismo y los sesgos en el aula",
+   "unidad": "Dirección de Desarrollo Curricular y Docente",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/aVda41MUFhu4xUrK9",
+   "sesiones": [
+    {
+     "fecha": "2026-07-31",
+     "inicio": "10:00",
+     "fin": "11:30"
+    },
+    {
+     "fecha": "2026-08-05",
+     "inicio": "17:00",
+     "fin": "18:30"
+    }
+   ],
+   "linea": 1,
+   "descripcion": "El taller busca entregar herramientas teóricas y reflexivas para comprender e integrar el enfoque de género en el quehacer académico, con énfasis crítico en las masculinidades. El programa se articula en los siguientes contenidos:",
+   "contenidos": [
+    "Masculinidades en la educación superior: conceptos clave e impacto en la convivencia universitaria.",
+    "El androcentrismo en la producción de conocimiento: deconstruyendo la «objetividad» académica.",
+    "Identificación de sesgos de género en la construcción de clases, currículos y dinámicas de participación en el aula.",
+    "Estrategias pedagógicas para una docencia equitativa.",
+    "Espacio de preguntas."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Salvador Bello Schlack",
+     "resena": "Psicólogo e investigador. Candidato a Magíster en Estudios de Género y Cultura (Universidad de Chile). Profesional del Equipo de Género de la Dirección de Salud Estudiantil (DSE) de la Universidad de Chile, especialista en el abordaje crítico de las masculinidades e intervenciones con perspectiva de género."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     0
+    ],
+    [
+     "2026-07-01",
+     0
+    ],
+    [
+     "2026-07-02",
+     2
+    ],
+    [
+     "2026-07-03",
+     2
+    ],
+    [
+     "2026-07-06",
+     2
+    ],
+    [
+     "2026-07-07",
+     2
+    ],
+    [
+     "2026-07-08",
+     2
+    ],
+    [
+     "2026-07-09",
+     6
+    ],
+    [
+     "2026-07-10",
+     7
+    ],
+    [
+     "2026-07-13",
+     8
+    ],
+    [
+     "2026-07-14",
+     8
+    ],
+    [
+     "2026-07-15",
+     9
+    ],
+    [
+     "2026-07-17",
+     9
+    ],
+    [
+     "2026-07-20",
+     9
+    ],
+    [
+     "2026-07-21",
+     10
+    ],
+    [
+     "2026-07-22",
+     10
+    ],
+    [
+     "2026-07-23",
+     11
+    ],
+    [
+     "2026-07-24",
+     11
+    ],
+    [
+     "2026-07-27",
+     12
+    ],
+    [
+     "2026-07-28",
+     13
+    ],
+    [
+     "2026-07-29",
+     13
+    ],
+    [
+     "2026-07-30",
+     13
+    ],
+    [
+     "2026-08-31",
+     13
+    ]
+   ],
+   "inscritos": 13
+  },
+  {
+   "n": 18,
+   "titulo": "Narrativa Audiovisual con IA al servicio de la educación",
+   "unidad": "Dirección de Educación en Línea",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/1DfiN6n68pn1C8bj9",
+   "sesiones": [
+    {
+     "fecha": "2026-07-31",
+     "inicio": "14:00",
+     "fin": "16:30"
+    }
+   ],
+   "linea": 6,
+   "descripcion": "Este taller introduce el uso de herramientas de IA generativa de imagen y video como apoyo a la creación de recursos educativos basados en narrativa audiovisual. A partir de ideas, microrrelatos o contenidos disciplinares, las y los participantes explorarán cómo transformar conceptos académicos en secuencias visuales breves, combinando guion, generación de imágenes, uso de referencias, animación y edición. El taller propone un acercamiento práctico, orientado a docentes que buscan enriquecer sus clases.",
+   "contenidos": [],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Arturo Quezada",
+     "resena": "Educación en Línea, Tecnología Educativa."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     4
+    ],
+    [
+     "2026-07-01",
+     4
+    ],
+    [
+     "2026-07-02",
+     13
+    ],
+    [
+     "2026-07-03",
+     17
+    ],
+    [
+     "2026-07-06",
+     17
+    ],
+    [
+     "2026-07-07",
+     19
+    ],
+    [
+     "2026-07-08",
+     21
+    ],
+    [
+     "2026-07-09",
+     25
+    ],
+    [
+     "2026-07-10",
+     25
+    ],
+    [
+     "2026-07-13",
+     25
+    ],
+    [
+     "2026-07-14",
+     25
+    ],
+    [
+     "2026-07-15",
+     25
+    ],
+    [
+     "2026-07-17",
+     25
+    ],
+    [
+     "2026-07-20",
+     26
+    ],
+    [
+     "2026-07-21",
+     26
+    ],
+    [
+     "2026-07-22",
+     29
+    ],
+    [
+     "2026-07-23",
+     29
+    ],
+    [
+     "2026-07-24",
+     31
+    ],
+    [
+     "2026-07-27",
+     32
+    ],
+    [
+     "2026-07-28",
+     44
+    ],
+    [
+     "2026-07-29",
+     47
+    ],
+    [
+     "2026-07-30",
+     51
+    ],
+    [
+     "2026-08-31",
+     51
+    ]
+   ],
+   "inscritos": 51
+  },
+  {
+   "n": 19,
+   "titulo": "Bienestar docente en educación superior: abordaje desde las prácticas pedagógicas",
+   "unidad": "Dirección de Desarrollo Curricular y Docente",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/tMMJVZo4UyPStFCL8",
+   "sesiones": [
+    {
+     "fecha": "2026-08-03",
+     "inicio": "10:00",
+     "fin": "12:30"
+    },
+    {
+     "fecha": "2026-08-05",
+     "inicio": "10:00",
+     "fin": "12:30"
+    }
+   ],
+   "linea": 4,
+   "descripcion": "En este taller se realizará un abordaje reflexivo y práctico sobre:",
+   "contenidos": [
+    "El constructo de Bienestar Docente y sus implicancias en el aprendizaje universitario.",
+    "La experiencia del Programa Bienestar Docente de la UC Temuco y otras experiencias nacionales e internacionales en Educación Superior.",
+    "Competencias socioemocionales de las y los docentes que permiten el desarrollo de prácticas pedagógicas apropiadas para un ambiente de aprendizaje positivo.",
+    "Recursos pedagógicos socioemocionales que se pueden incorporar en las planificaciones de clases."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Sergio Rodrigo Sanhueza Jara",
+     "resena": "Psicólogo UDP, Magíster en Educación, Asesor Pedagógico del Centro de Desarrollo Docente y Coordinador del Programa Bienestar Docente, Universidad Católica de Temuco."
+    },
+    {
+     "nombre": "Jessica Lorena Navarro Navarrete",
+     "resena": "Dra. en Ciencias de la Educación. Docente e investigadora, Facultad de Educación, Universidad Católica de Temuco."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     0
+    ],
+    [
+     "2026-07-01",
+     0
+    ],
+    [
+     "2026-07-02",
+     4
+    ],
+    [
+     "2026-07-03",
+     4
+    ],
+    [
+     "2026-07-06",
+     4
+    ],
+    [
+     "2026-07-07",
+     7
+    ],
+    [
+     "2026-07-08",
+     7
+    ],
+    [
+     "2026-07-09",
+     7
+    ],
+    [
+     "2026-07-10",
+     8
+    ],
+    [
+     "2026-07-13",
+     8
+    ],
+    [
+     "2026-07-14",
+     8
+    ],
+    [
+     "2026-07-15",
+     8
+    ],
+    [
+     "2026-07-17",
+     8
+    ],
+    [
+     "2026-07-20",
+     8
+    ],
+    [
+     "2026-07-21",
+     9
+    ],
+    [
+     "2026-07-22",
+     9
+    ],
+    [
+     "2026-07-23",
+     10
+    ],
+    [
+     "2026-07-24",
+     11
+    ],
+    [
+     "2026-07-27",
+     11
+    ],
+    [
+     "2026-07-28",
+     12
+    ],
+    [
+     "2026-07-29",
+     12
+    ],
+    [
+     "2026-07-30",
+     12
+    ],
+    [
+     "2026-08-31",
+     12
+    ],
+    [
+     "2026-08-03",
+     13
+    ]
+   ],
+   "inscritos": 13
+  },
+  {
+   "n": 20,
+   "titulo": "Discusión productiva: una estrategia dialógica para la sala de clases",
+   "unidad": "Facultad de Educación UDP",
+   "modalidad": "Online",
+   "inscripcion": "https://forms.gle/TqsF9DzMiL7LZGP2A",
+   "sesiones": [
+    {
+     "fecha": "2026-08-04",
+     "inicio": "10:00",
+     "fin": "12:30"
+    },
+    {
+     "fecha": "2026-08-05",
+     "inicio": "14:00",
+     "fin": "16:30"
+    }
+   ],
+   "linea": 2,
+   "descripcion": "",
+   "contenidos": [
+    "Prácticas esenciales en la docencia.",
+    "Discusión productiva como forma de interacción dialógica en la sala de clases.",
+    "Movimientos discursivos que impulsan la discusión entre los estudiantes."
+   ],
+   "requerimientos": [],
+   "relatores": [
+    {
+     "nombre": "Silvana De La Hoz Ibacache",
+     "resena": "Académica de didáctica del lenguaje de las carreras de Pedagogía en Educación Básica y Pedagogía en Educación Diferencial UDP. Doctora en Didáctica de la Lengua."
+    }
+   ],
+   "serie": [
+    [
+     "2026-06-30",
+     5
+    ],
+    [
+     "2026-07-01",
+     5
+    ],
+    [
+     "2026-07-02",
+     6
+    ],
+    [
+     "2026-07-03",
+     7
+    ],
+    [
+     "2026-07-06",
+     7
+    ],
+    [
+     "2026-07-07",
+     8
+    ],
+    [
+     "2026-07-08",
+     9
+    ],
+    [
+     "2026-07-09",
+     11
+    ],
+    [
+     "2026-07-10",
+     11
+    ],
+    [
+     "2026-07-13",
+     12
+    ],
+    [
+     "2026-07-14",
+     13
+    ],
+    [
+     "2026-07-15",
+     13
+    ],
+    [
+     "2026-07-17",
+     13
+    ],
+    [
+     "2026-07-20",
+     13
+    ],
+    [
+     "2026-07-21",
+     13
+    ],
+    [
+     "2026-07-22",
+     13
+    ],
+    [
+     "2026-07-23",
+     14
+    ],
+    [
+     "2026-07-24",
+     15
+    ],
+    [
+     "2026-07-27",
+     16
+    ],
+    [
+     "2026-07-28",
+     16
+    ],
+    [
+     "2026-07-29",
+     18
+    ],
+    [
+     "2026-07-30",
+     18
+    ],
+    [
+     "2026-08-31",
+     18
+    ],
+    [
+     "2026-08-03",
+     18
+    ],
+    [
+     "2026-08-04",
+     20
+    ]
+   ],
+   "inscritos": 20
+  }
+ ]
+}
+</script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (s, el) { return (el || document).querySelector(s); };
+  var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
+
+  var DATA = JSON.parse($('#datos-talleres').textContent);
+  var CICLO = DATA.ciclo || {};
+  var PUB = !!(DATA.publicacion && DATA.publicacion.activa);
+  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  var DIAS_C = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
+  var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  var MESES_C = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+
+  var ICON = (function () {
+    var a = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+    return {
+      cal: a + '<rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>',
+      reloj: a + '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+      video: a + '<rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/></svg>',
+      sala: a + '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+      persona: a + '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>',
+      externo: a + '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
+      pronto: a + '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+      grupo: a + '<circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.8 14.6c2.3.2 4 1.6 4.6 4.4"/></svg>',
+      cerrar: a + '<path d="M6 6l12 12M18 6L6 18"/></svg>'
+    };
+  })();
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function normalizar(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function capital(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  function parseFecha(iso, hhmm) { var f = iso.split('-').map(Number), h = (hhmm || '00:00').split(':').map(Number); return new Date(f[0], f[1] - 1, f[2], h[0], h[1]); }
+  function aMin(hhmm) { var h = hhmm.split(':').map(Number); return h[0] * 60 + h[1]; }
+  function inicioDia(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+  function sumarDias(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function claveDia(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function difDias(a, b) { return Math.round((inicioDia(a) - inicioDia(b)) / 864e5); }
+  function unirY(arr) { return arr.length <= 1 ? (arr[0] || '') : arr.slice(0, -1).join(', ') + ' y ' + arr[arr.length - 1]; }
+  function horas(min) { var h = min / 60; return (h % 1 === 0 ? String(h) : h.toFixed(1).replace('.', ',')) + '\u00a0h'; }
+  function duracion(min) { var h = Math.floor(min / 60), m = min % 60; return (h ? h + '\u00a0h' : '') + (h && m ? ' y ' : '') + (m ? m + '\u00a0min' : ''); }
+  function plural(n, s, p) { return n + ' ' + (n === 1 ? s : p); }
+  function fechaLarga(d) { return DIAS[d.getDay()] + ' ' + d.getDate() + ' de ' + MESES[d.getMonth()]; }
+  function fechaCorta(d) { return DIAS_C[d.getDay()] + ' ' + d.getDate() + ' ' + MESES_C[d.getMonth()]; }
+  function lunesDe(d) { return sumarDias(inicioDia(d), -((d.getDay() + 6) % 7)); }
+  function luminancia(hex) {
+    var h = hex.replace('#', ''); if (h.length === 3) h = h.replace(/(.)/g, '$1$1');
+    return [0, 2, 4].map(function (i) { var c = parseInt(h.substr(i, 2), 16) / 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); })
+      .reduce(function (a, c, i) { return a + c * [0.2126, 0.7152, 0.0722][i]; }, 0);
+  }
+  function textoSobre(hex) { var l = luminancia(hex); return (1.05 / (l + 0.05)) >= ((l + 0.05) / 0.0623) ? '#FFFFFF' : '#1E1324'; }
+
+  /* ---------- Líneas formativas, feriados y talleres ---------- */
+  var LINEAS = (DATA.lineas || []).map(function (l) { return { id: l.id, corto: l.corto, nombre: l.nombre, color: l.color, texto: textoSobre(l.color) }; });
+  var SIN_LINEA = { id: 0, corto: 'Sin línea asignada', nombre: 'Sin línea formativa asignada en el catálogo.', color: '#9A93A0', texto: '#1E1324' };
+  var LINEA = { 0: SIN_LINEA };
+  LINEAS.forEach(function (l) { LINEA[l.id] = l; });
+  function lin(t) { return LINEA[t.linea] || SIN_LINEA; }
+  function estiloLinea(l) { return '--eje:' + l.color + ';--eje-t:' + l.texto + ';--c:' + l.color + ';--ct:' + l.texto; }
+  function numLinea(l) { return '<span class="num-linea" style="--c:' + l.color + ';--ct:' + l.texto + '" aria-hidden="true">' + (l.id || '–') + '</span>'; }
+  var FERIADO = {};
+  (DATA.feriados || []).forEach(function (f) { FERIADO[f.fecha] = f.nombre || 'Feriado'; });
+
+  var FRANJAS_BASE = [
+    { id: 'manana', nombre: 'Mañana', desde: 0, hasta: 13 * 60 },
+    { id: 'tarde', nombre: 'Tarde', desde: 13 * 60, hasta: 17 * 60 },
+    { id: 'vespertina', nombre: 'Vespertina', desde: 17 * 60, hasta: 24 * 60 }
+  ];
+
+  var TALLERES = (DATA.talleres || []).filter(function (t) { return t.sesiones && t.sesiones.length; }).map(function (t) {
+    var sesiones = t.sesiones.map(function (s) {
+      var ini = parseFecha(s.fecha, s.inicio), fin = parseFecha(s.fecha, s.fin), m = aMin(s.inicio);
+      var fr = FRANJAS_BASE.filter(function (f) { return m >= f.desde && m < f.hasta; })[0];
+      return { fecha: s.fecha, inicio: s.inicio, fin: s.fin, ini: ini, finD: fin, min: Math.round((fin - ini) / 6e4), franja: fr.id };
+    }).sort(function (a, b) { return a.ini - b.ini; });
+    sesiones.forEach(function (s, i) { s.i = i; });
+    var relatores = (t.relatores || []).map(function (r) { return typeof r === 'string' ? { nombre: r, resena: '' } : r; });
+    var l = LINEA[t.linea] || SIN_LINEA;
+    return {
+      n: t.n, titulo: t.titulo, linea: l.id, unidad: t.unidad || '', modalidad: t.modalidad || '', inscripcion: t.inscripcion || '',
+      descripcion: t.descripcion || '', contenidos: t.contenidos || [], requerimientos: t.requerimientos || [], relatores: relatores,
+      serie: t.serie || [], inscritos: t.inscritos, sesiones: sesiones,
+      primera: sesiones[0].ini, ultima: sesiones[sesiones.length - 1].finD,
+      minTot: sesiones.reduce(function (a, s) { return a + s.min; }, 0),
+      texto: ' ' + normalizar([t.titulo, t.descripcion, (t.contenidos || []).join(' '), relatores.map(function (r) { return r.nombre; }).join(' '),
+        t.unidad, t.modalidad, l.corto, l.nombre].join(' ')).replace(/[^a-z0-9ñ]+/g, ' ') + ' '
+    };
+  }).sort(function (a, b) { return (a.primera - b.primera) || (a.n - b.n); });
+
+  var TODAS = [];
+  TALLERES.forEach(function (t) { t.sesiones.forEach(function (s) { TODAS.push({ t: t, s: s }); }); });
+  TODAS.sort(function (a, b) { return a.s.ini - b.s.ini; });
+
+  var FRANJAS = FRANJAS_BASE.filter(function (f) { return TODAS.some(function (x) { return x.s.franja === f.id; }); }).map(function (f) {
+    var inicios = TODAS.filter(function (x) { return x.s.franja === f.id; }).map(function (x) { return x.s.inicio; });
+    inicios.sort(function (a, b) { return aMin(a) - aMin(b); });
+    return { id: f.id, nombre: f.nombre, ref: inicios[0] };
+  });
+
+  var INICIO_CICLO = TODAS[0].s.ini;
+  var FIN_CICLO = TODAS.reduce(function (m, x) { return x.s.finD > m ? x.s.finD : m; }, TODAS[0].s.finD);
+  var N_DIAS = TODAS.some(function (x) { return x.s.ini.getDay() === 0; }) ? 7 : (TODAS.some(function (x) { return x.s.ini.getDay() === 6; }) ? 6 : 5);
+  var SEMANAS = [];
+  for (var l0 = lunesDe(INICIO_CICLO), k = 1; l0 <= FIN_CICLO; l0 = sumarDias(l0, 7), k++) {
+    var dias = [];
+    for (var i = 0; i < N_DIAS; i++) dias.push(sumarDias(l0, i));
+    SEMANAS.push({ k: k, lunes: l0, dias: dias });
+  }
+  function semanaDe(d) { return SEMANAS.filter(function (w) { return d >= w.lunes && d < sumarDias(w.lunes, 7); })[0]; }
+  var CELDAS = {};
+  TODAS.forEach(function (x) { var c = claveDia(x.s.ini) + '|' + x.s.franja; (CELDAS[c] = CELDAS[c] || []).push(x); });
+  var MODALIDADES = TALLERES.map(function (t) { return t.modalidad; }).filter(function (m, i, a) { return m && a.indexOf(m) === i; }).sort();
+
+  function diaHabil(d) { var w = d.getDay(); return w === 6 ? sumarDias(d, 2) : (w === 0 ? sumarDias(d, 1) : d); }
+  var PRESETS = [
+    { etiqueta: 'Apertura de inscripciones', fecha: CICLO.fechaApertura || claveDia(sumarDias(INICIO_CICLO, -14)) },
+    { etiqueta: 'Mitad del ciclo', fecha: claveDia(diaHabil(sumarDias(inicioDia(INICIO_CICLO), Math.floor(difDias(FIN_CICLO, INICIO_CICLO) / 2)))) },
+    { etiqueta: 'Hoy', fecha: claveDia(new Date()) }
+  ];
+
+  var state = {
+    q: '', sel: { linea: [], modalidad: [], franja: [], formato: [] },
+    verInscritos: false, vista: 'tema',
+    ref: parseFecha(PRESETS[0].fecha, '09:00')
+  };
+
+  function estado(t) {
+    var r = state.ref;
+    if (r < t.primera) {
+      var d = difDias(t.primera, r);
+      if (d === 0) return { abierto: true, codigo: 'pronto', etiqueta: 'Comienza hoy' };
+      if (d === 1) return { abierto: true, codigo: 'pronto', etiqueta: 'Comienza mañana' };
+      if (d <= 7) return { abierto: true, codigo: 'pronto', etiqueta: 'Comienza en ' + d + ' días' };
+      return { abierto: true, codigo: 'abierto', etiqueta: 'Inscripciones abiertas' };
+    }
+    if (r <= t.ultima) return { abierto: false, codigo: 'curso', etiqueta: 'En curso, inscripción cerrada' };
+    return { abierto: false, codigo: 'realizado', etiqueta: 'Realizado' };
+  }
+  function inscritosA(t) {
+    if (!t.serie.length) return t.inscritos == null ? null : t.inscritos;
+    var kref = claveDia(state.ref), v = 0;
+    for (var j = 0; j < t.serie.length && t.serie[j][0] <= kref; j++) v = t.serie[j][1];
+    return v;
+  }
+
+  var GRUPOS = [
+    { id: 'linea', nombre: 'Línea formativa del Marco para la Buena Docencia', opciones: LINEAS.map(function (l) { return { id: String(l.id), nombre: l.corto, linea: l }; }),
+      test: function (t, v) { return String(t.linea) === v; } },
+    { id: 'modalidad', nombre: 'Modalidad', opciones: MODALIDADES.map(function (m) { return { id: m, nombre: m }; }),
+      test: function (t, v) { return t.modalidad === v; } },
+    { id: 'franja', nombre: 'Jornada', opciones: FRANJAS.map(function (f) { return { id: f.id, nombre: f.nombre, nota: f.ref }; }),
+      test: function (t, v) { return t.sesiones.some(function (s) { return s.franja === v; }); } },
+    { id: 'formato', nombre: 'Duración', opciones: [{ id: 'unica', nombre: 'Sesión única' }, { id: 'varias', nombre: 'Varias sesiones' }].filter(function (o) {
+        return TALLERES.some(function (t) { return o.id === 'unica' ? t.sesiones.length === 1 : t.sesiones.length > 1; });
+      }),
+      test: function (t, v) { return v === 'unica' ? t.sesiones.length === 1 : t.sesiones.length > 1; } }
+  ];
+  function grupo(id) { return GRUPOS.filter(function (g) { return g.id === id; })[0]; }
+
+  function terminos() { return normalizar(state.q).replace(/[^a-z0-9ñ]+/g, ' ').split(' ').filter(Boolean); }
+  function contiene(t, w) { return w.length <= 3 ? t.texto.indexOf(' ' + w + ' ') >= 0 : t.texto.indexOf(w) >= 0; }
+  function cumpleFiltros(t, excepto) {
+    var q = terminos();
+    if (q.length && !q.every(function (w) { return contiene(t, w); })) return false;
+    return GRUPOS.every(function (g) {
+      if (g.id === excepto) return true;
+      var sel = state.sel[g.id];
+      return !sel.length || sel.some(function (v) { return g.test(t, v); });
+    });
+  }
+  /* Solo se muestran talleres con inscripciones abiertas: los en curso o realizados quedan para el sitio institucional. */
+  function cumple(t, excepto) { return estado(t).abierto && cumpleFiltros(t, excepto); }
+  function hayFiltros() { return !!state.q.trim() || GRUPOS.some(function (g) { return state.sel[g.id].length; }); }
+  function nFiltros() { return (state.q.trim() ? 1 : 0) + GRUPOS.reduce(function (a, g) { return a + state.sel[g.id].length; }, 0); }
+
+  /* ---------- Piezas reutilizables ---------- */
+  function etiquetaLinea(t, completa) {
+    var l = lin(t);
+    return '<p class="linea-tag">' + numLinea(l) + '<span>' + (l.id ? 'Línea ' + l.id + ': ' : '') + esc(l.corto) + '</span>' +
+      (completa && l.id ? '<small>' + esc(l.nombre) + '</small>' : '') + '</p>';
+  }
+  function conArticulo(u) {
+    if (/^(direcci[oó]n|facultad|vicerrector[ií]a|unidad|escuela|coordinaci[oó]n)\b/i.test(u)) return 'la ' + u;
+    if (/^(departamento|programa|centro|laboratorio|instituto)\b/i.test(u)) return 'el ' + u;
+    return u;
+  }
+  function textoSesion(t, s) { return t.sesiones.length === 1 ? 'Sesión única' : 'Sesión ' + (s.i + 1) + ' de ' + t.sesiones.length; }
+  function textoDuracion(t) { return t.sesiones.length === 1 ? 'sesión única, ' + horas(t.minTot) : t.sesiones.length + ' sesiones, ' + horas(t.minTot) + ' en total'; }
+  function textoConsta(t) {
+    var n = t.sesiones.length, iguales = t.sesiones.every(function (s) { return s.min === t.sesiones[0].min; });
+    if (n === 1) return 'Consta de 1 sesión de ' + duracion(t.minTot) + '.';
+    return 'Consta de ' + n + ' sesiones' + (iguales ? ' de ' + duracion(t.sesiones[0].min) + ' cada una' : '') + ' (' + horas(t.minTot) + ' en total).';
+  }
+  function mismoHorario(t) { return t.sesiones.every(function (s) { return s.inicio === t.sesiones[0].inicio && s.fin === t.sesiones[0].fin; }); }
+  function fechasTexto(t) {
+    var vistos = {}, dias = [];
+    t.sesiones.forEach(function (s) { var c = claveDia(s.ini); if (!vistos[c]) { vistos[c] = 1; dias.push(s.ini); } });
+    var mismoMes = dias.every(function (d) { return d.getMonth() === dias[0].getMonth(); });
+    if (mismoMes) return capital(unirY(dias.map(function (d) { return DIAS[d.getDay()] + ' ' + d.getDate(); }))) + ' de ' + MESES[dias[0].getMonth()];
+    return capital(unirY(dias.map(fechaLarga)));
+  }
+  function lineasMeta(t) {
+    var out = [];
+    if (mismoHorario(t)) {
+      out.push([ICON.cal, fechasTexto(t)]);
+      out.push([ICON.reloj, t.sesiones[0].inicio + ' a ' + t.sesiones[0].fin + ' (' + textoDuracion(t) + ')']);
+    } else {
+      t.sesiones.forEach(function (s) { out.push([ICON.cal, capital(fechaLarga(s.ini)) + ', ' + s.inicio + ' a ' + s.fin]); });
+      out.push([ICON.reloj, capital(textoDuracion(t))]);
+    }
+    out.push([t.modalidad === 'Presencial' ? ICON.sala : ICON.video, t.modalidad]);
+    if (t.relatores.length) out.push([ICON.persona, t.relatores.map(function (r) { return r.nombre; }).join(', ')]);
+    return out;
+  }
+  function inscritosHTML(t) {
+    if (!state.verInscritos) return '';
+    var n = inscritosA(t);
+    return n == null ? '' : '<span class="inscritos">' + ICON.grupo + plural(n, 'persona inscrita', 'personas inscritas') + '</span>';
+  }
+  function estadoHTML(t, e) {
+    return '<p class="estado estado-' + e.codigo + '"><span>' + (e.codigo === 'pronto' ? ICON.pronto : '') + esc(e.etiqueta) + '</span>' + inscritosHTML(t) + '</p>';
+  }
+  function botonInscripcion(t, e, chico) {
+    if (!e.abierto) return '';
+    if (!t.inscripcion) return '<span class="nota-estado">Formulario por publicar</span>';
+    return '<a class="btn btn-primario' + (chico ? ' btn-chico' : '') + '" href="' + esc(t.inscripcion) + '" target="_blank" rel="noopener noreferrer">Inscribirme' + ICON.externo +
+      '<span class="sr-only"> en ' + esc(t.titulo) + ' (el formulario se abre en otra pestaña)</span></a>';
+  }
+  function extracto(t) {
+    var d = t.descripcion;
+    if (d && !(/:\s*$/.test(d) && d.length < 90)) return '<p class="extracto">' + esc(d.replace(/\s*[^.]*:\s*$/, '')) + '</p>';
+    if (!t.contenidos.length) return '';
+    var max = 3, items = t.contenidos.slice(0, max).map(function (c) { return '<li>' + esc(c.replace(/\.$/, '')) + '</li>'; }).join('');
+    var resto = t.contenidos.length - max;
+    return '<ul class="extracto-lista">' + items + (resto > 0 ? '<li class="mas">y ' + plural(resto, 'tema más', 'temas más') + '</li>' : '') + '</ul>';
+  }
+  function enlaceCalendario(t, s) {
+    var f = function (d) { return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + 'T' + pad(d.getHours()) + pad(d.getMinutes()) + '00'; };
+    var detalles = (CICLO.nombre ? CICLO.nombre + '. ' : '') + textoSesion(t, s) + '. Modalidad: ' + t.modalidad + '.' + (t.inscripcion ? ' Inscripción: ' + t.inscripcion : '');
+    var p = new URLSearchParams({
+      action: 'TEMPLATE', text: 'Taller: ' + t.titulo, dates: f(s.ini) + '/' + f(s.finD), ctz: CICLO.zonaHoraria || 'America/Santiago',
+      details: detalles, location: t.modalidad === 'Presencial' ? 'Presencial (sala por confirmar)' : t.modalidad
+    });
+    return 'https://calendar.google.com/calendar/render?' + p.toString();
+  }
+
+  /* ---------- Cabecera, bloque de participación y pie ---------- */
+  function modalidadPlural(m, n) { var s = m.toLowerCase(); if (n === 1 || s === 'online') return s; return /[aeiouáéíóú]$/.test(s) ? s + 's' : s + 'es'; }
+  function pintarCabecera() {
+    $('#organiza').textContent = CICLO.organiza || '';
+    $('#titulo-ciclo').textContent = CICLO.nombre || 'Oferta de talleres';
+    var meses = [];
+    TODAS.forEach(function (x) { var m = MESES[x.s.ini.getMonth()]; if (meses.indexOf(m) < 0) meses.push(m); });
+    var periodo = capital(unirY(meses)) + ' ' + INICIO_CICLO.getFullYear();
+    $('#periodo').textContent = periodo;
+    document.title = (CICLO.nombre || 'Oferta de talleres') + ', ' + periodo.toLowerCase();
+    $('#presentacion').textContent = CICLO.presentacion || '';
+    $('#presentacion').hidden = !CICLO.presentacion;
+    var modos = MODALIDADES.map(function (m) { var n = TALLERES.filter(function (t) { return t.modalidad === m; }).length; return n + ' ' + modalidadPlural(m, n); });
+    $('#cifras').textContent = plural(TALLERES.length, 'taller', 'talleres') + ' y ' + plural(TODAS.length, 'sesión', 'sesiones') + ' entre el ' + fechaLarga(INICIO_CICLO) +
+      ' y el ' + fechaLarga(FIN_CICLO) + ', en ' + plural(FRANJAS.length, 'jornada', 'jornadas') + ' (' + unirY(FRANJAS.map(function (f) { return f.nombre.toLowerCase(); })) + '): ' + unirY(modos) + '.';
+    $('#marco').textContent = CICLO.marco || '';
+    $('#leyenda').innerHTML = LINEAS.map(function (l) { return '<li>' + numLinea(l) + esc(l.corto) + '</li>'; }).join('') +
+      (Object.keys(FERIADO).length ? '<li class="clave-otros clave-feriado"><i></i>Feriado</li>' : '') +
+      '<li class="clave-otros clave-vacia"><i></i>Sin sesión</li>';
+
+    var items = [
+      ['Quiénes pueden participar', CICLO.dirigido_a],
+      ['Inscripción', CICLO.inscripcion],
+      ['Modalidad', CICLO.modalidad]
+    ].filter(function (x) { return x[1]; });
+    $('#participar-lista').innerHTML = items.map(function (x) { return '<div><dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd></div>'; }).join('');
+    $('#participar').hidden = !items.length;
+
+    var participan = String(CICLO.participan || '').split(';').map(function (s) { return s.trim(); }).filter(Boolean);
+    $('#pie-participan').textContent = participan.length ? 'Participan en la implementación: ' + unirY(participan) + '.' : '';
+    $('#pie').textContent = PUB ? (CICLO.generado ? 'Actualizado el ' + CICLO.generado.split('-').reverse().join('-') + '.' : '') : 'Prototipo para pruebas internas. Datos operativos tomados de ' + (CICLO.fuente ? 'la planilla \u201c' + CICLO.fuente + '\u201d' : 'la planilla de gestión del ciclo') +
+      (CICLO.generado ? ' (actualizado el ' + CICLO.generado.split('-').reverse().join('-') + ')' : '') +
+      '; descripciones y líneas formativas, del catálogo del ciclo. La página muestra solo lo necesario para inscribirse: no publica correos, enlaces de conexión ni grabaciones.';
+  }
+
+  /* ---------- Calendario del ciclo (banda) ---------- */
+  function etiquetaFicha(t, s, e) {
+    var l = lin(t);
+    return capital(fechaLarga(s.ini)) + ', ' + s.inicio + ' a ' + s.fin + ': ' + t.titulo + '. ' + textoSesion(t, s) + '. ' +
+      (l.id ? 'Línea formativa ' + l.id + ', ' + l.corto + '. ' : '') + e.etiqueta + '.';
+  }
+  function semanasVisibles() {
+    var ks = TODAS.filter(function (x) { return estado(x.t).abierto; }).map(function (x) { return semanaDe(x.s.ini).k; });
+    if (!ks.length) return [];
+    var a = Math.min.apply(null, ks), b = Math.max.apply(null, ks);
+    return SEMANAS.filter(function (w) { return w.k >= a && w.k <= b; });
+  }
+  function pintarTablero() {
+    var coincide = {}, SV = semanasVisibles(), hoy0 = inicioDia(state.ref);
+    TALLERES.forEach(function (t) { if (cumpleFiltros(t)) coincide[t.n] = 1; });
+    var sep = function (i) { return i ? '<td class="sep" aria-hidden="true"></td>' : ''; };
+    var cols = '<colgroup><col class="col-etq">' + SV.map(function (w, i) {
+      return (i ? '<col class="col-sep">' : '') + w.dias.map(function () { return '<col>'; }).join('');
+    }).join('') + '</colgroup>';
+    var cab1 = '<tr><td></td>' + SV.map(function (w, i) {
+      return sep(i) + '<th scope="colgroup" colspan="' + w.dias.length + '" class="semana-cab">Semana ' + w.k + '</th>';
+    }).join('') + '</tr>';
+    var cab2 = '<tr><td></td>' + SV.map(function (w, i) {
+      return sep(i) + w.dias.map(function (d) {
+        var hoy = difDias(d, state.ref) === 0, fer = FERIADO[claveDia(d)], pasado = d < hoy0;
+        return '<th scope="col" class="dia-cab' + (hoy ? ' hoy' : '') + (fer ? ' feriado' : '') + (pasado ? ' pasado' : '') + '"' +
+          (fer ? ' title="Feriado: ' + esc(fer) + '"' : '') + '><span>' + (hoy ? 'hoy' : (fer ? 'feriado' : DIAS_C[d.getDay()])) + '</span><span class="num">' + d.getDate() + '</span></th>';
+      }).join('');
+    }).join('') + '</tr>';
+    var filas = FRANJAS.map(function (f) {
+      return '<tr><th scope="row" class="franja">' + f.nombre + '<small>' + f.ref + '</small></th>' + SV.map(function (w, i) {
+        return sep(i) + w.dias.map(function (d) {
+          var xs = (CELDAS[claveDia(d) + '|' + f.id] || []).filter(function (x) { return estado(x.t).abierto; });
+          var hoy = difDias(d, state.ref) === 0, fer = FERIADO[claveDia(d)];
+          if (fer && !xs.length) return '<td' + (hoy ? ' class="hoy"' : '') + '><div class="celda feriado" title="Feriado: ' + esc(fer) + '"></div></td>';
+          return '<td' + (hoy ? ' class="hoy"' : '') + '><div class="celda">' + xs.map(function (x) {
+            var e = estado(x.t), l = lin(x.t);
+            return '<button type="button" class="ficha' + (coincide[x.t.n] ? '' : ' apagada') + '" style="' + estiloLinea(l) + '" data-abrir="' + x.t.n + '" data-s="' + x.s.i +
+              '" aria-label="' + esc(etiquetaFicha(x.t, x.s, e)) + '"><span aria-hidden="true">' + (l.id || '') + '</span></button>';
+          }).join('') + '</div></td>';
+        }).join('');
+      }).join('') + '</tr>';
+    }).join('');
+    $('#tablero').innerHTML = SV.length ? '<caption class="sr-only">Sesiones con inscripciones abiertas por día y jornada</caption>' + cols + '<thead>' + cab1 + cab2 + '</thead><tbody>' + filas + '</tbody>' : '';
+    $('.tablero-scroll').hidden = !SV.length;
+    $('.pista-scroll').hidden = !SV.length;
+    $('#leyenda').hidden = !SV.length;
+    $('#marco').hidden = !SV.length || !CICLO.marco;
+
+    var r = state.ref, abiertos = TALLERES.filter(function (t) { return estado(t).abierto; }).length, txt;
+    if (r < INICIO_CICLO) {
+      var d = difDias(INICIO_CICLO, r);
+      txt = d === 0 ? 'La primera sesión es hoy.' : (d === 1 ? 'La primera sesión es mañana.' : 'Faltan ' + d + ' días para la primera sesión.');
+    } else if (r <= FIN_CICLO) {
+      var w = semanaDe(r); txt = 'Ciclo en curso' + (w ? ', semana ' + w.k + ' de ' + SEMANAS.length : '') + '.';
+    } else {
+      txt = 'El ciclo terminó el ' + fechaLarga(FIN_CICLO) + '.';
+    }
+    txt += abiertos ? ' ' + plural(abiertos, 'taller tiene', 'talleres tienen') + ' inscripciones abiertas.' : ' No quedan talleres con inscripciones abiertas.';
+    $('#estado-ciclo').textContent = txt;
+  }
+
+  /* ---------- Filtros ---------- */
+  function construirFiltros() {
+    $('#grupos').innerHTML = GRUPOS.map(function (g) {
+      return '<fieldset class="grupo grupo-' + g.id + '"><legend>' + g.nombre + '</legend><div class="chips">' + g.opciones.map(function (o) {
+        return '<button type="button" class="chip" data-grupo="' + g.id + '" data-valor="' + esc(o.id) + '" aria-pressed="false">' +
+          (o.linea ? numLinea(o.linea) : '') + '<span class="chip-nombre">' + esc(o.nombre) + '</span>' +
+          (o.nota ? '<small>' + esc(o.nota) + '</small>' : '') + '<span class="cuenta"></span></button>';
+      }).join('') + '</div></fieldset>';
+    }).join('');
+  }
+  function actualizarFiltros() {
+    $$('.chip').forEach(function (b) {
+      var g = grupo(b.dataset.grupo), v = b.dataset.valor, on = state.sel[g.id].indexOf(v) >= 0;
+      var n = TALLERES.filter(function (t) { return cumple(t, g.id) && g.test(t, v); }).length;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.querySelector('.cuenta').textContent = n;
+      b.disabled = !on && n === 0;
+      var nota = b.querySelector('small'), pre = g.id === 'linea' ? 'Línea ' + v + ', ' : '';
+      b.setAttribute('aria-label', pre + b.querySelector('.chip-nombre').textContent + (nota ? ' ' + nota.textContent : '') + ', ' + plural(n, 'taller', 'talleres'));
+    });
+    $('#limpiar').hidden = !hayFiltros();
+    var nf = nFiltros();
+    $('#boton-filtros').textContent = nf ? 'Filtros (' + nf + ')' : 'Filtros';
+  }
+  function pintarConteo(lista) {
+    var base = TALLERES.filter(function (t) { return estado(t).abierto; }).length, txt;
+    if (!hayFiltros()) txt = plural(lista.length, 'taller', 'talleres') + ' con inscripciones abiertas';
+    else txt = lista.length + ' de ' + plural(base, 'taller', 'talleres') + (lista.length === 1 ? ' coincide' : ' coinciden') + ' con tu búsqueda';
+    $('#conteo').textContent = txt;
+  }
+
+  /* ---------- Vistas ---------- */
+  function vacio() {
+    if (!TALLERES.some(function (t) { return estado(t).abierto; })) {
+      return '<div class="vacio"><p class="vacio-titulo">No hay talleres con inscripciones abiertas en esta fecha.</p><p>' +
+        (state.ref > FIN_CICLO ? 'El ciclo terminó el ' + fechaLarga(FIN_CICLO) + '.' : 'Todos los talleres del ciclo ya comenzaron.') + '</p></div>';
+    }
+    return '<div class="vacio"><p class="vacio-titulo">Ningún taller coincide con la búsqueda y los filtros elegidos.</p><p>Quita algún filtro o prueba con otra palabra clave.</p>' +
+      '<button type="button" class="btn btn-secundario" data-accion="limpiar">Limpiar filtros</button></div>';
+  }
+  function ticket(t) {
+    var e = estado(t), s0 = t.sesiones[0], mas = t.sesiones.length - 1;
+    return '<article class="ticket" style="' + estiloLinea(lin(t)) + '">' +
+      '<div class="talon" aria-hidden="true"><span class="talon-dia">' + DIAS_C[s0.ini.getDay()] + '</span><span class="talon-num">' + s0.ini.getDate() +
+      '</span><span class="talon-mes">' + MESES_C[s0.ini.getMonth()] + '</span>' + (mas ? '<span class="talon-mas">+' + plural(mas, 'sesión', 'sesiones') + '</span>' : '') + '</div>' +
+      '<div class="ticket-cuerpo">' +
+      '<h3 class="ticket-titulo"><button type="button" class="enlace-titulo" data-abrir="' + t.n + '">' + esc(t.titulo) + '</button></h3>' + extracto(t) +
+      '<ul class="meta">' + lineasMeta(t).map(function (m) { return '<li>' + m[0] + '<span>' + esc(m[1]) + '</span></li>'; }).join('') + '</ul>' +
+      '<div class="ticket-pie">' + estadoHTML(t, e) + '<div class="acciones"><button type="button" class="btn btn-secundario" data-abrir="' + t.n + '">Ver ficha<span class="sr-only"> de ' + esc(t.titulo) + '</span></button>' +
+      botonInscripcion(t, e) + '</div></div></div></article>';
+  }
+  function vistaTema(lista) {
+    return LINEAS.concat([SIN_LINEA]).map(function (l) {
+      var items = lista.filter(function (t) { return t.linea === l.id; });
+      if (!items.length) return '';
+      return '<section class="grupo-tema" aria-labelledby="g-' + l.id + '"><h2 id="g-' + l.id + '">' + numLinea(l) + esc(l.corto) +
+        '<span class="cuantos">' + plural(items.length, 'taller', 'talleres') + '</span></h2>' +
+        (l.id ? '<p class="linea-completa">' + esc(l.nombre) + '</p>' : '<p class="linea-completa"></p>') +
+        '<div class="tickets">' + items.map(ticket).join('') + '</div></section>';
+    }).join('');
+  }
+  function rangoSemana(w) {
+    var a = w.dias[0], b = w.dias[w.dias.length - 1];
+    return a.getMonth() === b.getMonth() ? a.getDate() + ' al ' + b.getDate() + ' de ' + MESES[a.getMonth()] : a.getDate() + ' de ' + MESES[a.getMonth()] + ' al ' + b.getDate() + ' de ' + MESES[b.getMonth()];
+  }
+  function fila(x) {
+    var t = x.t, s = x.s, e = estado(t), l = lin(t), accion;
+    if (s.i === 0) accion = botonInscripcion(t, e) || '<span class="nota-estado">' + esc(e.etiqueta) + '</span>';
+    else accion = '<span class="nota-estado">Continuación del taller</span>';
+    return '<li class="fila" style="' + estiloLinea(l) + '">' +
+      '<p class="fila-hora"><b>' + s.inicio + '</b> a ' + s.fin + '</p>' +
+      '<div class="fila-info"><button type="button" class="enlace-titulo" data-abrir="' + t.n + '">' + esc(t.titulo) + '</button>' +
+      '<p class="fila-meta">' + numLinea(l) + '<span>' + esc(l.corto) + '</span><span>' + textoSesion(t, s) + '</span><span>' + esc(t.modalidad) + '</span></p></div>' +
+      '<div class="fila-accion">' + accion + '</div></li>';
+  }
+  function cabeceraDia(d) {
+    var hoy = difDias(d, state.ref) === 0;
+    return '<p class="dia-fecha">' + (hoy ? '<span class="marca-hoy">Hoy</span>' : '') + '<span class="dia-num">' + d.getDate() +
+      '</span><span class="dia-nombre">' + DIAS[d.getDay()] + '</span><span class="dia-mes">' + MESES[d.getMonth()] + '</span></p>';
+  }
+  function vistaFecha(lista) {
+    var visibles = {};
+    lista.forEach(function (t) { visibles[t.n] = 1; });
+    return SEMANAS.map(function (w) {
+      var porDia = w.dias.map(function (d) { return TODAS.filter(function (x) { return visibles[x.t.n] && difDias(x.s.ini, d) === 0; }); });
+      if (!porDia.some(function (xs) { return xs.length; })) return '';
+      return '<section class="semana" aria-labelledby="sf-' + w.k + '"><h2 class="semana-titulo" id="sf-' + w.k + '">Semana ' + w.k + '<span>' + rangoSemana(w) + '</span></h2>' +
+        porDia.map(function (xs, j) {
+          var d = w.dias[j], fer = FERIADO[claveDia(d)];
+          if (!xs.length && fer && d >= inicioDia(state.ref)) return '<div class="dia">' + cabeceraDia(d) + '<p class="feriado-nota">Feriado: ' + esc(fer) + '. No hay talleres este día.</p></div>';
+          if (!xs.length) return '';
+          return '<div class="dia">' + cabeceraDia(d) + '<ol class="filas">' + xs.map(fila).join('') + '</ol></div>';
+        }).join('') + '</section>';
+    }).join('');
+  }
+  function bloque(x) {
+    var t = x.t, s = x.s, e = estado(t), l = lin(t);
+    return '<div class="bloque" style="' + estiloLinea(l) + '">' +
+      '<span class="bloque-hora">' + numLinea(l) + s.inicio + ' a ' + s.fin + '</span>' +
+      '<button type="button" class="bloque-titulo" data-abrir="' + t.n + '"><span class="clamp">' + esc(t.titulo) + '</span></button>' +
+      '<span class="bloque-meta">' + textoSesion(t, s) + ', ' + esc(t.modalidad.toLowerCase()) + '</span>' +
+      botonInscripcion(t, e, true) + '</div>';
+  }
+  function vistaHorario(lista) {
+    var visibles = {};
+    lista.forEach(function (t) { visibles[t.n] = 1; });
+    var celda = function (d, f) { return (CELDAS[claveDia(d) + '|' + f.id] || []).filter(function (x) { return visibles[x.t.n]; }); };
+    return SEMANAS.map(function (w) {
+      if (!w.dias.some(function (d) { return FRANJAS.some(function (f) { return celda(d, f).length; }); })) return '';
+      var esFeriado = function (d) { return FERIADO[claveDia(d)] && !FRANJAS.some(function (f) { return (CELDAS[claveDia(d) + '|' + f.id] || []).length; }); };
+      return '<section class="semana" aria-labelledby="sh-' + w.k + '"><h2 class="semana-titulo" id="sh-' + w.k + '">Semana ' + w.k + '<span>' + rangoSemana(w) + '</span></h2>' +
+        '<div class="grilla-scroll"><table class="grilla"><caption class="sr-only">Sesiones de la semana ' + w.k + ' por día y jornada</caption>' +
+        '<colgroup><col class="col-franja">' + w.dias.map(function () { return '<col>'; }).join('') + '</colgroup>' +
+        '<thead><tr><td></td>' + w.dias.map(function (d) {
+          var hoy = difDias(d, state.ref) === 0;
+          var cls = [esFeriado(d) ? 'feriado' : '', d < inicioDia(state.ref) ? 'pasado' : ''].filter(Boolean).join(' ');
+          return '<th scope="col"' + (cls ? ' class="' + cls + '"' : '') + '>' + capital(DIAS[d.getDay()]) + ' ' + d.getDate() + (hoy ? '<small>Hoy</small>' : '') + '</th>';
+        }).join('') + '</tr></thead><tbody>' + FRANJAS.map(function (f, fi) {
+          return '<tr><th scope="row">' + f.nombre + '<small>desde las ' + f.ref + '</small></th>' + w.dias.map(function (d) {
+            var hoy = difDias(d, state.ref) === 0;
+            if (esFeriado(d)) {
+              return fi ? '' : '<td rowspan="' + FRANJAS.length + '"' + (hoy ? ' class="hoy"' : '') + '><div class="grilla-feriado"><b>Feriado</b><span>' + esc(FERIADO[claveDia(d)]) + '</span></div></td>';
+            }
+            var xs = celda(d, f);
+            return '<td' + (hoy ? ' class="hoy"' : '') + '><div class="grilla-celda' + (xs.length ? ' llena' : '') + '">' + xs.map(bloque).join('') + '</div></td>';
+          }).join('') + '</tr>';
+        }).join('') + '</tbody></table></div></section>';
+    }).join('');
+  }
+  function pintarPanel(lista) {
+    var p = $('#panel');
+    if (!lista.length) { p.innerHTML = vacio(); return; }
+    p.innerHTML = state.vista === 'fecha' ? vistaFecha(lista) : (state.vista === 'horario' ? vistaHorario(lista) : vistaTema(lista));
+  }
+
+  var dlg = $('#detalle'), origen = null, abierto = null;
+  function render() {
+    pintarTablero();
+    actualizarFiltros();
+    var lista = TALLERES.filter(function (t) { return cumple(t); });
+    pintarConteo(lista);
+    pintarPanel(lista);
+    if (dlg.open && abierto != null) pintarDetalle(abierto);
+  }
+
+  /* ---------- Ficha del taller (misma estructura que el brochure) ---------- */
+  function pintarDetalle(n) {
+    var t = TALLERES.filter(function (x) { return x.n === n; })[0];
+    if (!t) return;
+    var e = estado(t), l = lin(t);
+    var info = [];
+    if (t.unidad) info.push('Taller liderado por ' + conArticulo(t.unidad) + '.');
+    info.push(textoConsta(t));
+    info.push('Se dictará en modalidad ' + t.modalidad.toLowerCase() + '. ' + (t.modalidad === 'Presencial' ? 'La sala se informa por correo a las personas inscritas.' : 'El enlace de conexión se envía por correo a las personas inscritas.'));
+    info = info.concat(t.requerimientos);
+    var trata = (t.descripcion ? '<p>' + esc(t.descripcion) + '</p>' : '') +
+      (t.contenidos.length ? '<ul class="det-lista">' + t.contenidos.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' : '');
+    dlg.setAttribute('style', estiloLinea(l));
+    $('#det-contenido').innerHTML =
+      '<div class="det-cab"><button type="button" class="cerrar" data-cerrar aria-label="Cerrar ficha">' + ICON.cerrar + '</button>' + etiquetaLinea(t, true) +
+      '<h2 id="det-titulo">' + esc(t.titulo) + '</h2>' + estadoHTML(t, e) + '</div>' +
+      '<div class="det-cuerpo">' +
+      (trata ? '<section aria-labelledby="det-trata"><h3 id="det-trata">De qué trata el taller</h3>' + trata + '</section>' : '') +
+      '<section aria-labelledby="det-info"><h3 id="det-info">Información general y requerimientos</h3><ul class="det-lista">' +
+        info.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></section>' +
+      '<section aria-labelledby="det-ses"><h3 id="det-ses">Fechas y horarios</h3><ol class="det-sesiones">' +
+      t.sesiones.map(function (s) {
+        return '<li><div><b>' + capital(fechaLarga(s.ini)) + '</b><span>' + s.inicio + ' a ' + s.fin + ', ' + horas(s.min) + (t.sesiones.length > 1 ? '. ' + textoSesion(t, s) : '') + '</span></div>' +
+          '<a href="' + esc(enlaceCalendario(t, s)) + '" target="_blank" rel="noopener noreferrer">' + ICON.cal + 'Añadir a Google Calendar<span class="sr-only"> (se abre en otra pestaña)</span></a></li>';
+      }).join('') + '</ol></section>' +
+      (t.relatores.length ? '<section aria-labelledby="det-rel"><h3 id="det-rel">' + (t.relatores.length === 1 ? 'Relator/a' : 'Relatores/as') + '</h3><ul class="det-relatoria">' +
+        t.relatores.map(function (r) { return '<li><b>' + esc(r.nombre) + '</b>' + (r.resena ? '<span>' + esc(r.resena) + '</span>' : '') + '</li>'; }).join('') + '</ul></section>' : '') +
+      '</div><div class="det-pie"><button type="button" class="btn btn-secundario" data-cerrar>Volver a la oferta</button>' +
+      (botonInscripcion(t, e) || '<span class="nota-estado">' + esc(e.etiqueta) + '</span>') + '</div>';
+  }
+  function abrirDetalle(n, desde) {
+    ocultarTip();
+    origen = desde || document.activeElement;
+    abierto = n;
+    pintarDetalle(n);
+    if (!dlg.open) dlg.showModal();
+    if (window.OT_CONTEXTO === 'h5p') {
+      // Dentro de H5P el marco crece con el contenido: la ficha se abre junto al elemento elegido, no al centro del marco.
+      var r = origen && origen.getBoundingClientRect ? origen.getBoundingClientRect() : { top: 0 };
+      var total = document.documentElement.scrollHeight, alto = dlg.offsetHeight;
+      var y = Math.max(12, Math.min(r.top + window.scrollY - 40, total - alto - 12));
+      dlg.style.position = 'absolute'; dlg.style.top = y + 'px'; dlg.style.bottom = 'auto'; dlg.style.margin = '0 auto';
+    }
+    var c = $('#det-contenido .cerrar'); if (c) c.focus();
+  }
+  dlg.addEventListener('click', function (ev) { if (ev.target === dlg || ev.target.closest('[data-cerrar]')) dlg.close(); });
+  dlg.addEventListener('close', function () { abierto = null; if (origen && origen.isConnected) origen.focus(); });
+
+  /* ---------- Tooltip del calendario ---------- */
+  var tip = $('#tip');
+  function mostrarTip(f) {
+    var t = TALLERES.filter(function (x) { return x.n === +f.dataset.abrir; })[0];
+    if (!t) return;
+    var s = t.sesiones[+f.dataset.s], e = estado(t), l = lin(t);
+    tip.innerHTML = '<b>' + capital(fechaCorta(s.ini)) + ', ' + s.inicio + ' a ' + s.fin + '</b><span>' + esc(t.titulo) + '</span><small>' +
+      (l.id ? 'Línea ' + l.id + ', ' + esc(l.corto) + '. ' : '') + textoSesion(t, s) + ', ' + esc(t.modalidad.toLowerCase()) + '. ' + esc(e.etiqueta) + '.</small>';
+    tip.hidden = false;
+    var r = f.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight;
+    var x = Math.max(8, Math.min(r.left + r.width / 2 - tw / 2, window.innerWidth - tw - 8));
+    var y = r.top - th - 10;
+    if (y < 8) y = r.bottom + 10;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+  }
+  function ocultarTip() { tip.hidden = true; }
+  var tab = $('#tablero');
+  tab.addEventListener('pointerover', function (ev) { var f = ev.target.closest('.ficha'); if (f) mostrarTip(f); });
+  tab.addEventListener('pointerout', function (ev) { if (ev.target.closest('.ficha')) ocultarTip(); });
+  tab.addEventListener('focusin', function (ev) { var f = ev.target.closest('.ficha'); if (f) mostrarTip(f); });
+  tab.addEventListener('focusout', ocultarTip);
+  window.addEventListener('scroll', ocultarTip, { passive: true });
+  document.body.addEventListener('scroll', ocultarTip, { passive: true });
+  $('.tablero-scroll').addEventListener('scroll', ocultarTip, { passive: true });
+
+  /* ---------- Eventos ---------- */
+  function limpiar() {
+    state.q = ''; $('#q').value = '';
+    GRUPOS.forEach(function (g) { state.sel[g.id] = []; });
+    render();
+  }
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest('[data-abrir]');
+    if (a && !dlg.contains(a)) { abrirDetalle(+a.dataset.abrir, a); return; }
+    var acc = ev.target.closest('[data-accion]');
+    if (acc && acc.dataset.accion === 'limpiar') limpiar();
+  });
+  $('#grupos').addEventListener('click', function (ev) {
+    var b = ev.target.closest('.chip');
+    if (!b || b.disabled) return;
+    var arr = state.sel[b.dataset.grupo], v = b.dataset.valor, j = arr.indexOf(v);
+    if (j >= 0) arr.splice(j, 1); else arr.push(v);
+    render();
+  });
+  $('#q').addEventListener('input', function (ev) { state.q = ev.target.value; render(); });
+  $('#limpiar').addEventListener('click', limpiar);
+  var chkInscritos = $('#ver-inscritos');
+  if (chkInscritos) chkInscritos.addEventListener('change', function (ev) { state.verInscritos = ev.target.checked; render(); });
+  $('#boton-filtros').addEventListener('click', function () {
+    var abiertoF = $('#grupos').classList.toggle('abierto');
+    this.setAttribute('aria-expanded', abiertoF ? 'true' : 'false');
+  });
+
+  function setVista(v, foco) {
+    state.vista = v;
+    $$('[role="tab"]').forEach(function (t) {
+      var on = t.dataset.vista === v;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      if (on && foco) t.focus();
+    });
+    $('#panel').setAttribute('aria-labelledby', 'tab-' + v);
+    render();
+  }
+  $$('[role="tab"]').forEach(function (t) { t.addEventListener('click', function () { setVista(t.dataset.vista); }); });
+  $('.vistas').addEventListener('keydown', function (ev) {
+    if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].indexOf(ev.key) < 0) return;
+    var tabs = $$('[role="tab"]'), j = tabs.indexOf(document.activeElement);
+    if (j < 0) j = tabs.map(function (t) { return t.getAttribute('aria-selected'); }).indexOf('true');
+    j = ev.key === 'Home' ? 0 : ev.key === 'End' ? tabs.length - 1 : (j + (ev.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+    ev.preventDefault();
+    setVista(tabs[j].dataset.vista, true);
+  });
+
+  /* ---------- Barra de prototipo (se elimina al publicar) ---------- */
+  if (PUB) {
+    $('.proto').remove();
+    state.verInscritos = DATA.publicacion.inscritos === 'cifra';
+    state.ref = new Date();
+    pintarCabecera(); construirFiltros(); render();
+    return;
+  }
+  var inputFecha = $('#ref-fecha');
+  $('#proto-rapidos').innerHTML = PRESETS.map(function (p) {
+    var d = parseFecha(p.fecha, '09:00');
+    return '<button type="button" data-fecha="' + p.fecha + '" aria-pressed="false">' + p.etiqueta + ' (' + d.getDate() + ' ' + MESES_C[d.getMonth()] + ')</button>';
+  }).join('');
+  function setRef(iso) {
+    state.ref = parseFecha(iso, '09:00');
+    inputFecha.value = iso;
+    $$('#proto-rapidos button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.fecha === iso ? 'true' : 'false'); });
+    render();
+  }
+  $('#proto-rapidos').addEventListener('click', function (ev) { var b = ev.target.closest('button'); if (b) setRef(b.dataset.fecha); });
+  inputFecha.addEventListener('change', function () { if (inputFecha.value) setRef(inputFecha.value); });
+
+  pintarCabecera();
+  construirFiltros();
+  setRef(PRESETS[0].fecha);
+})();
+</script>
+</body>
+</html>
