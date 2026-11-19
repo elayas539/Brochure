@@ -82,7 +82,7 @@ button,input,select{font:inherit;color:inherit}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--foco);outline-offset:2px;border-radius:4px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.contenedor{max-width:1160px;margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+.contenedor{width:100%;margin-inline:auto;padding-inline:clamp(16px,4vw,72px)}
 svg.ic{width:16px;height:16px;flex:none}
 h1,h2,h3{font-family:var(--f-titulo)}
 
@@ -111,7 +111,12 @@ h1{margin:0;font-weight:800;font-size:clamp(2rem,4.6vw,3.25rem);line-height:1.06
 .presentacion{margin:16px 0 0;max-width:72ch;color:var(--banda-texto)}
 .cifras{margin:10px 0 0;max-width:72ch;color:var(--banda-texto-2)}
 
-.tablero{margin:30px 0 0}
+.indice{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.indice a{display:inline-block;color:var(--banda-texto);text-decoration:none;font-size:.875rem;font-weight:700;border:1px solid var(--banda-linea);border-radius:999px;padding:5px 13px}
+.indice a:hover{background:rgba(255,255,255,.12)}
+.banda-final{margin-top:44px}
+.banda-final + .pie{border-top:0}
+.tablero{margin:0}
 .tablero-cab{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;margin:0 0 10px}
 .tablero-cab h2{margin:0;font-size:1.0625rem;font-weight:700}
 .tablero-cab p{margin:0;color:var(--banda-texto-2);font-size:.9375rem}
@@ -155,7 +160,7 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .tip small{color:var(--texto-2)}
 
 /* Antes de inscribirte */
-.participar{padding-block:30px 4px}
+.participar{padding-block:32px 4px}
 .participar h2{margin:0 0 14px;font-size:1.25rem}
 .participar-lista{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px 26px}
 .participar-lista div{border-top:3px solid var(--tinta);padding-top:10px}
@@ -171,8 +176,9 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .campo svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--texto-2);pointer-events:none}
 .campo input{width:100%;padding:10px 12px 10px 40px;border:1px solid var(--linea);border-radius:8px;background:var(--superficie);color:var(--texto)}
 .campo input::placeholder{color:var(--texto-2)}
-.btn.boton-filtros{display:none}
+.btn.boton-filtros{display:inline-flex}
 .grupos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 28px}
+.grupos:not(.abierto){display:none}
 .grupo{border:0;margin:0;padding:0;min-width:0}
 .grupo-linea{grid-column:1/-1}
 .grupo legend{padding:0;margin:0 0 8px;font-weight:700;font-size:.9375rem}
@@ -195,12 +201,12 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .check input{width:17px;height:17px;accent-color:var(--tinta)}
 .btn-texto{border:0;background:none;padding:4px 2px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:.9375rem}
 
-/* Pestañas */
-.vistas{display:flex;gap:2px;border-bottom:1px solid var(--linea);margin-top:22px;overflow-x:auto}
-.vistas button{border:0;background:none;padding:12px 16px;font-weight:700;color:var(--texto-2);border-bottom:3px solid transparent;margin-bottom:-1px;cursor:pointer;white-space:nowrap}
-.vistas button:hover{color:var(--texto)}
-.vistas button[aria-selected="true"]{color:var(--texto);border-bottom-color:var(--tinta)}
-#panel{padding-block:26px 56px}
+/* Secciones de talleres (por línea formativa y por horario) */
+[id]{scroll-margin-top:16px}
+.vista{padding-block:30px 10px}
+.vista + .vista{border-top:1px solid var(--linea);margin-top:30px}
+.vista-titulo{margin:0 0 4px;font-size:clamp(1.4rem,2.6vw,1.75rem);line-height:1.2}
+.vista-intro{margin:0 0 22px;color:var(--texto-2);max-width:75ch}
 
 /* Elementos compartidos */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:8px;padding:8px 14px;font-weight:700;font-size:.9375rem;text-decoration:none;cursor:pointer;border:1px solid transparent;line-height:1.2;white-space:nowrap}
@@ -222,9 +228,9 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 
 /* Vista por línea formativa */
 .grupo-tema + .grupo-tema{margin-top:40px}
-.grupo-tema h2{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0;font-size:1.25rem}
-.grupo-tema h2 .num-linea{width:26px;height:26px;font-size:.8125rem}
-.grupo-tema h2 span.cuantos{font-family:var(--f-texto);font-weight:400;font-size:.9375rem;color:var(--texto-2)}
+.grupo-tema h3{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0;font-size:1.2rem}
+.grupo-tema h3 .num-linea{width:26px;height:26px;font-size:.8125rem}
+.grupo-tema h3 span.cuantos{font-family:var(--f-texto);font-weight:400;font-size:.9375rem;color:var(--texto-2)}
 .grupo-tema .linea-completa{margin:4px 0 14px 36px;color:var(--texto-2);font-size:.9375rem;max-width:80ch}
 .tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:14px}
 .ticket{display:grid;grid-template-columns:76px minmax(0,1fr);background:var(--superficie);border:1px solid var(--linea);border-radius:12px;overflow:hidden}
@@ -248,25 +254,10 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .ticket-pie{margin-top:auto;padding-top:11px;border-top:1px solid var(--linea);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
 .acciones{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
 
-/* Vista por fecha */
+/* Semanas (vista por horario) */
 .semana + .semana{margin-top:34px}
-.semana-titulo{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 6px;font-size:1.25rem}
+.semana-titulo{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 6px;font-size:1.125rem}
 .semana-titulo span{font-family:var(--f-texto);font-weight:400;font-size:.9375rem;color:var(--texto-2)}
-.dia{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;padding:14px 0;border-top:1px solid var(--linea)}
-.dia-fecha{margin:0;display:flex;flex-direction:column;line-height:1.1}
-.dia-num{font-family:var(--f-titulo);font-size:2.125rem;font-weight:800;font-variant-numeric:tabular-nums}
-.dia-nombre{font-weight:700;margin-top:2px}
-.dia-mes{color:var(--texto-2);font-size:.875rem}
-.marca-hoy{align-self:flex-start;font-size:.75rem;font-weight:700;background:var(--tinta);color:var(--superficie);border-radius:999px;padding:1px 8px;margin-bottom:4px}
-.feriado-nota{margin:0;align-self:center;padding:12px 14px;border:1px dashed var(--linea);border-radius:10px;color:var(--texto-2)}
-.filas{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.fila{display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--superficie);border:1px solid var(--linea);border-left:6px solid color-mix(in srgb,var(--eje) 85%,var(--oscurecer));border-radius:10px;padding:12px 14px}
-.fila-hora{margin:0;color:var(--texto-2);font-variant-numeric:tabular-nums;font-size:.9375rem}
-.fila-hora b{color:var(--texto);font-size:1.0625rem}
-.fila-info{min-width:0}
-.fila-meta{margin:5px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:3px 14px;font-size:.8125rem;color:var(--texto-2)}
-.fila-meta .num-linea{width:18px;height:18px;font-size:.625rem}
-.fila-accion{justify-self:end}
 
 /* Vista por horario */
 .grilla-scroll{overflow-x:auto;margin-top:8px}
@@ -330,15 +321,7 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
 
 @media (max-width:760px){
   .grupos{grid-template-columns:1fr}
-  .btn.boton-filtros{display:inline-flex}
-  .grupos:not(.abierto){display:none}
   .pista-scroll{display:block}
-  .dia{grid-template-columns:1fr;gap:8px}
-  .dia-fecha{flex-direction:row;align-items:baseline;gap:8px}
-  .dia-num{font-size:1.75rem}
-  .marca-hoy{align-self:center;margin:0}
-  .fila{grid-template-columns:1fr;gap:6px}
-  .fila-accion{justify-self:start}
   .grupo-tema .linea-completa{margin-left:0}
 }
 @media (prefers-reduced-motion: no-preference){
@@ -366,16 +349,12 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     <p class="periodo" id="periodo"></p>
     <p class="presentacion" id="presentacion"></p>
     <p class="cifras" id="cifras"></p>
-    <section class="tablero" aria-labelledby="tablero-titulo">
-      <div class="tablero-cab">
-        <h2 id="tablero-titulo">Calendario del ciclo</h2>
-        <p><span id="estado-ciclo"></span> Selecciona un bloque para ver la ficha del taller.</p>
-      </div>
-      <div class="tablero-scroll"><table class="tabla-tablero" id="tablero"></table></div>
-      <p class="pista-scroll">Desliza el calendario hacia los lados para ver todas las semanas.</p>
-      <p class="marco" id="marco"></p>
-      <ul class="leyenda" id="leyenda"></ul>
-    </section>
+    <ul class="indice" aria-label="En esta página">
+      <li><a href="#participar">Antes de inscribirte</a></li>
+      <li><a href="#por-linea">Talleres por línea formativa</a></li>
+      <li><a href="#por-horario">Talleres por horario</a></li>
+      <li><a href="#calendario">Calendario del ciclo</a></li>
+    </ul>
   </div>
 </header>
 
@@ -384,7 +363,6 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     <h2 id="participar-titulo">Antes de inscribirte</h2>
     <dl class="participar-lista" id="participar-lista"></dl>
   </section>
-
   <section class="herramientas" aria-label="Búsqueda y filtros">
     <div class="fila-busqueda">
       <div class="buscador">
@@ -405,13 +383,34 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     </div>
   </section>
 
-  <div class="vistas" role="tablist" aria-label="Formas de explorar la oferta">
-    <button type="button" role="tab" id="tab-tema" data-vista="tema" aria-controls="panel" aria-selected="true">Por línea formativa</button>
-    <button type="button" role="tab" id="tab-fecha" data-vista="fecha" aria-controls="panel" aria-selected="false" tabindex="-1">Por fecha</button>
-    <button type="button" role="tab" id="tab-horario" data-vista="horario" aria-controls="panel" aria-selected="false" tabindex="-1">Por horario</button>
-  </div>
-  <div id="panel" role="tabpanel" aria-labelledby="tab-tema" tabindex="-1"></div>
+  <section class="vista" id="por-linea" aria-labelledby="titulo-por-linea">
+    <h2 class="vista-titulo" id="titulo-por-linea">Talleres por línea formativa</h2>
+    <p class="vista-intro">Talleres agrupados según la línea del Marco para la Buena Docencia a la que aportan.</p>
+    <div id="panel-linea"></div>
+  </section>
+
+  <section class="vista" id="por-horario" aria-labelledby="titulo-por-horario">
+    <h2 class="vista-titulo" id="titulo-por-horario">Talleres por horario</h2>
+    <p class="vista-intro">Cada bloque es una sesión, con su botón de inscripción. Selecciona el título para ver la ficha completa.</p>
+    <div id="panel-horario"></div>
+  </section>
+
 </main>
+
+<section class="banda banda-final" id="calendario" aria-labelledby="tablero-titulo">
+  <div class="contenedor">
+    <section class="tablero" aria-labelledby="tablero-titulo">
+      <div class="tablero-cab">
+        <h2 id="tablero-titulo">Calendario del ciclo</h2>
+        <p><span id="estado-ciclo"></span> Selecciona un bloque para ver la ficha del taller.</p>
+      </div>
+      <div class="tablero-scroll"><table class="tabla-tablero" id="tablero"></table></div>
+      <p class="pista-scroll">Desliza el calendario hacia los lados para ver todas las semanas.</p>
+      <p class="marco" id="marco"></p>
+      <ul class="leyenda" id="leyenda"></ul>
+    </section>
+  </div>
+</section>
 
 <footer class="contenedor pie"><p id="pie-participan"></p><p id="pie"></p></footer>
 
@@ -432,7 +431,7 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
   "zonaHoraria": "America/Santiago",
   "fechaApertura": "2026-06-30",
   "fuente": "Gestión equipo Talleres julio 2026",
-  "generado": "2026-11-16"
+  "generado": "2026-11-19"
  },
  "lineas": [
   {
@@ -2699,7 +2698,7 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
 
   var state = {
     q: '', sel: { linea: [], modalidad: [], franja: [], formato: [] },
-    verInscritos: false, vista: 'tema',
+    verInscritos: false,
     ref: parseFecha(PRESETS[0].fecha, '09:00')
   };
 
@@ -2975,8 +2974,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     return LINEAS.concat([SIN_LINEA]).map(function (l) {
       var items = lista.filter(function (t) { return t.linea === l.id; });
       if (!items.length) return '';
-      return '<section class="grupo-tema" aria-labelledby="g-' + l.id + '"><h2 id="g-' + l.id + '">' + numLinea(l) + esc(l.corto) +
-        '<span class="cuantos">' + plural(items.length, 'taller', 'talleres') + '</span></h2>' +
+      return '<section class="grupo-tema" aria-labelledby="g-' + l.id + '"><h3 id="g-' + l.id + '">' + numLinea(l) + esc(l.corto) +
+        '<span class="cuantos">' + plural(items.length, 'taller', 'talleres') + '</span></h3>' +
         (l.id ? '<p class="linea-completa">' + esc(l.nombre) + '</p>' : '<p class="linea-completa"></p>') +
         '<div class="tickets">' + items.map(ticket).join('') + '</div></section>';
     }).join('');
@@ -2984,36 +2983,6 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
   function rangoSemana(w) {
     var a = w.dias[0], b = w.dias[w.dias.length - 1];
     return a.getMonth() === b.getMonth() ? a.getDate() + ' al ' + b.getDate() + ' de ' + MESES[a.getMonth()] : a.getDate() + ' de ' + MESES[a.getMonth()] + ' al ' + b.getDate() + ' de ' + MESES[b.getMonth()];
-  }
-  function fila(x) {
-    var t = x.t, s = x.s, e = estado(t), l = lin(t), accion;
-    if (s.i === 0) accion = botonInscripcion(t, e) || '<span class="nota-estado">' + esc(e.etiqueta) + '</span>';
-    else accion = '<span class="nota-estado">Continuación del taller</span>';
-    return '<li class="fila" style="' + estiloLinea(l) + '">' +
-      '<p class="fila-hora"><b>' + s.inicio + '</b> a ' + s.fin + '</p>' +
-      '<div class="fila-info"><button type="button" class="enlace-titulo" data-abrir="' + t.n + '">' + esc(t.titulo) + '</button>' +
-      '<p class="fila-meta">' + numLinea(l) + '<span>' + esc(l.corto) + '</span><span>' + textoSesion(t, s) + '</span><span>' + esc(t.modalidad) + '</span></p></div>' +
-      '<div class="fila-accion">' + accion + '</div></li>';
-  }
-  function cabeceraDia(d) {
-    var hoy = difDias(d, state.ref) === 0;
-    return '<p class="dia-fecha">' + (hoy ? '<span class="marca-hoy">Hoy</span>' : '') + '<span class="dia-num">' + d.getDate() +
-      '</span><span class="dia-nombre">' + DIAS[d.getDay()] + '</span><span class="dia-mes">' + MESES[d.getMonth()] + '</span></p>';
-  }
-  function vistaFecha(lista) {
-    var visibles = {};
-    lista.forEach(function (t) { visibles[t.n] = 1; });
-    return SEMANAS.map(function (w) {
-      var porDia = w.dias.map(function (d) { return TODAS.filter(function (x) { return visibles[x.t.n] && difDias(x.s.ini, d) === 0; }); });
-      if (!porDia.some(function (xs) { return xs.length; })) return '';
-      return '<section class="semana" aria-labelledby="sf-' + w.k + '"><h2 class="semana-titulo" id="sf-' + w.k + '">Semana ' + w.k + '<span>' + rangoSemana(w) + '</span></h2>' +
-        porDia.map(function (xs, j) {
-          var d = w.dias[j], fer = FERIADO[claveDia(d)];
-          if (!xs.length && fer && d >= inicioDia(state.ref)) return '<div class="dia">' + cabeceraDia(d) + '<p class="feriado-nota">Feriado: ' + esc(fer) + '. No hay talleres este día.</p></div>';
-          if (!xs.length) return '';
-          return '<div class="dia">' + cabeceraDia(d) + '<ol class="filas">' + xs.map(fila).join('') + '</ol></div>';
-        }).join('') + '</section>';
-    }).join('');
   }
   function bloque(x) {
     var t = x.t, s = x.s, e = estado(t), l = lin(t);
@@ -3030,7 +2999,7 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     return SEMANAS.map(function (w) {
       if (!w.dias.some(function (d) { return FRANJAS.some(function (f) { return celda(d, f).length; }); })) return '';
       var esFeriado = function (d) { return FERIADO[claveDia(d)] && !FRANJAS.some(function (f) { return (CELDAS[claveDia(d) + '|' + f.id] || []).length; }); };
-      return '<section class="semana" aria-labelledby="sh-' + w.k + '"><h2 class="semana-titulo" id="sh-' + w.k + '">Semana ' + w.k + '<span>' + rangoSemana(w) + '</span></h2>' +
+      return '<section class="semana" aria-labelledby="sh-' + w.k + '"><h3 class="semana-titulo" id="sh-' + w.k + '">Semana ' + w.k + '<span>' + rangoSemana(w) + '</span></h3>' +
         '<div class="grilla-scroll"><table class="grilla"><caption class="sr-only">Sesiones de la semana ' + w.k + ' por día y jornada</caption>' +
         '<colgroup><col class="col-franja">' + w.dias.map(function () { return '<col>'; }).join('') + '</colgroup>' +
         '<thead><tr><td></td>' + w.dias.map(function (d) {
@@ -3050,9 +3019,10 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     }).join('');
   }
   function pintarPanel(lista) {
-    var p = $('#panel');
-    if (!lista.length) { p.innerHTML = vacio(); return; }
-    p.innerHTML = state.vista === 'fecha' ? vistaFecha(lista) : (state.vista === 'horario' ? vistaHorario(lista) : vistaTema(lista));
+    // Primero los talleres por línea formativa y luego por horario (la vista por fecha se eliminó)
+    $('#panel-linea').innerHTML = lista.length ? vistaTema(lista) : vacio();
+    $('#panel-horario').innerHTML = lista.length ? vistaHorario(lista) : '';
+    $('#por-horario').hidden = !lista.length;
   }
 
   var dlg = $('#detalle'), origen = null, abierto = null;
@@ -3165,27 +3135,6 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
   $('#boton-filtros').addEventListener('click', function () {
     var abiertoF = $('#grupos').classList.toggle('abierto');
     this.setAttribute('aria-expanded', abiertoF ? 'true' : 'false');
-  });
-
-  function setVista(v, foco) {
-    state.vista = v;
-    $$('[role="tab"]').forEach(function (t) {
-      var on = t.dataset.vista === v;
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
-      t.tabIndex = on ? 0 : -1;
-      if (on && foco) t.focus();
-    });
-    $('#panel').setAttribute('aria-labelledby', 'tab-' + v);
-    render();
-  }
-  $$('[role="tab"]').forEach(function (t) { t.addEventListener('click', function () { setVista(t.dataset.vista); }); });
-  $('.vistas').addEventListener('keydown', function (ev) {
-    if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].indexOf(ev.key) < 0) return;
-    var tabs = $$('[role="tab"]'), j = tabs.indexOf(document.activeElement);
-    if (j < 0) j = tabs.map(function (t) { return t.getAttribute('aria-selected'); }).indexOf('true');
-    j = ev.key === 'Home' ? 0 : ev.key === 'End' ? tabs.length - 1 : (j + (ev.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
-    ev.preventDefault();
-    setVista(tabs[j].dataset.vista, true);
   });
 
   /* ---------- Barra de prototipo (se elimina al publicar) ---------- */
