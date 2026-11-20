@@ -87,9 +87,9 @@ svg.ic{width:16px;height:16px;flex:none}
 h1,h2,h3{font-family:var(--f-titulo)}
 
 /* Número de línea formativa (círculo como las insignias del brochure) */
-.num-linea{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;flex:none;background:var(--c);color:var(--ct);
-  font-family:var(--f-titulo);font-weight:800;font-size:.6875rem;line-height:1;box-shadow:0 0 0 1px rgba(0,0,0,.16)}
-.linea-tag{margin:0;display:inline-flex;align-items:center;gap:8px;font-size:.8125rem;font-weight:700;color:var(--texto-2)}
+.num-linea{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;flex:none;background:var(--c);color:var(--ct);
+  font-family:var(--f-titulo);font-weight:800;font-size:.75rem;line-height:1;box-shadow:0 0 0 1px rgba(0,0,0,.16)}
+.linea-tag{margin:0;display:inline-flex;align-items:center;gap:8px;font-size:.875rem;font-weight:600;color:var(--texto-2)}
 
 /* Barra de prototipo (solo pruebas internas) */
 .proto{background:var(--aviso-fondo);color:var(--aviso-texto);border-bottom:1px dashed var(--aviso-borde);font-size:.875rem}
@@ -103,13 +103,13 @@ h1,h2,h3{font-family:var(--f-titulo)}
 .proto-rapidos button[aria-pressed="true"]{background:var(--aviso-borde);color:#fff}
 
 /* Banda superior */
-.banda{background:linear-gradient(100deg,var(--banda-a),var(--banda-b));color:var(--banda-texto);padding-block:clamp(28px,5vw,52px) clamp(24px,4vw,36px)}
+.banda{background:linear-gradient(100deg,var(--banda-a),var(--banda-b));color:var(--banda-texto);padding-block:clamp(24px,3.5vw,40px)}
 .banda :focus-visible{outline-color:#fff}
 .organiza{margin:0 0 14px;color:var(--banda-texto-2);font-size:.9375rem}
-h1{margin:0;font-weight:800;font-size:clamp(2rem,4.6vw,3.25rem);line-height:1.06;letter-spacing:-.015em;max-width:20ch}
+h1{margin:0;font-weight:800;font-size:clamp(1.85rem,3.6vw,2.75rem);line-height:1.08;letter-spacing:-.015em;max-width:22ch}
 .periodo{margin:10px 0 0;font-family:var(--f-titulo);font-size:clamp(1.0625rem,2vw,1.35rem);font-weight:700}
 .presentacion{margin:16px 0 0;max-width:72ch;color:var(--banda-texto)}
-.cifras{margin:10px 0 0;max-width:72ch;color:var(--banda-texto-2)}
+.cifras{margin:10px 0 0;max-width:62ch;color:var(--banda-texto-2)}
 
 .indice{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
 .indice a{display:inline-block;color:var(--banda-texto);text-decoration:none;font-size:.875rem;font-weight:700;border:1px solid var(--banda-linea);border-radius:999px;padding:5px 13px}
@@ -135,13 +135,13 @@ h1{margin:0;font-weight:800;font-size:clamp(2rem,4.6vw,3.25rem);line-height:1.06
 .tabla-tablero th.dia-cab.feriado span:first-child{color:var(--banda-texto);font-style:italic}
 .tabla-tablero th.dia-cab.pasado span{opacity:.5}
 .tabla-tablero th.franja{text-align:left;color:var(--banda-texto);font-size:.875rem;line-height:1.1}
-.tabla-tablero th.franja small{display:block;color:var(--banda-texto-2);font-size:.75rem}
+.tabla-tablero th.franja small{display:block;color:var(--banda-texto-2);font-size:.8125rem}
 .tabla-tablero td{padding:0}
 .celda{height:30px;border-radius:6px;background:var(--banda-celda);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);display:flex;flex-direction:column;gap:2px;overflow:hidden}
 .celda.feriado{background:rgba(255,255,255,.9)}
 td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .ficha{flex:1;min-height:0;border:0;padding:0;border-radius:6px;background:var(--eje);color:var(--eje-t);cursor:pointer;
-  font-family:var(--f-titulo);font-weight:800;font-size:.75rem;line-height:1;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+  font-family:var(--f-titulo);font-weight:800;font-size:.8125rem;line-height:1;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
 .ficha:hover{filter:brightness(1.1)}
 .ficha:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .ficha.apagada{opacity:.16}
@@ -153,6 +153,27 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .leyenda .clave-feriado i{background:rgba(255,255,255,.9)}
 .leyenda .clave-vacia i{background:var(--banda-celda);box-shadow:inset 0 0 0 1px var(--banda-linea)}
 .leyenda .clave-otros{color:var(--banda-texto-2)}
+
+/* Cabecera compacta: texto a la izquierda y «Antes de inscribirte» a la derecha en pantallas anchas */
+.cabecera{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);gap:28px 56px;align-items:start}
+.cabecera-acciones{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:20px}
+.btn-claro{background:#FFFFFF;color:#3E1F45;padding:10px 18px}
+.btn-claro:hover{background:#F1E9F3}
+.enlace-banda{color:var(--banda-texto);font-weight:600;text-underline-offset:3px}
+.sobre-ciclo{margin-top:16px;max-width:72ch}
+.sobre-ciclo summary{cursor:pointer;color:var(--banda-texto);font-weight:600;font-size:.9375rem}
+.sobre-ciclo .presentacion{margin:10px 0 0;color:var(--banda-texto-2)}
+.banda .participar{margin:0;padding:18px 22px 20px;border:1px solid var(--banda-linea);border-radius:14px;background:rgba(255,255,255,.06)}
+.participar-plegable summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.participar-plegable summary::-webkit-details-marker{display:none}
+.participar-plegable summary::after{content:"+";font-size:1.25rem;line-height:1;color:var(--banda-texto-2)}
+.participar-plegable[open] summary::after{content:"–"}
+.banda .participar h2{margin:0;font-size:1.0625rem;color:var(--banda-texto)}
+.banda .participar-lista{grid-template-columns:1fr;gap:12px;margin-top:14px}
+.banda .participar-lista div{border-top:1px solid var(--banda-linea);padding-top:10px}
+.banda .participar-lista dt{color:var(--banda-texto)}
+.banda .participar-lista dd{color:var(--banda-texto-2)}
+@media (max-width:1000px){ .cabecera{grid-template-columns:1fr} }
 .pista-scroll{display:none;margin:4px 0 0;font-size:.8125rem;color:var(--banda-texto-2)}
 
 .tip{position:fixed;z-index:60;max-width:300px;display:flex;flex-direction:column;gap:3px;background:var(--superficie);color:var(--texto);border:1px solid var(--linea);border-radius:8px;padding:9px 11px;font-size:.8125rem;line-height:1.35;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.28)}
@@ -160,7 +181,7 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .tip small{color:var(--texto-2)}
 
 /* Antes de inscribirte */
-.participar{padding-block:32px 4px}
+.participar{padding-block:32px 0}
 .participar h2{margin:0 0 14px;font-size:1.25rem}
 .participar-lista{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px 26px}
 .participar-lista div{border-top:3px solid var(--tinta);padding-top:10px}
@@ -168,7 +189,7 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .participar-lista dd{margin:0;color:var(--texto-2);font-size:.9375rem}
 
 /* Búsqueda y filtros */
-.herramientas{padding-block:26px 6px;display:grid;gap:18px}
+.herramientas{padding-block:14px 0;display:grid;gap:12px}
 .fila-busqueda{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 16px}
 .buscador{flex:1 1 320px;max-width:560px;display:flex;flex-direction:column;gap:6px}
 .buscador label{font-weight:700}
@@ -185,8 +206,8 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--linea);background:var(--superficie);border-radius:999px;padding:4px 12px 4px 8px;cursor:pointer;font-size:.875rem;line-height:1.3}
 .chip:not(:has(.num-linea)){padding-left:12px}
-.chip small{color:var(--texto-2);font-size:.75rem}
-.chip .cuenta{min-width:1.4em;text-align:center;font-size:.75rem;font-weight:700;color:var(--texto-2);background:var(--superficie-2);border-radius:999px;padding:0 6px;font-variant-numeric:tabular-nums}
+.chip small{color:var(--texto-2);font-size:.8125rem}
+.chip .cuenta{min-width:1.4em;text-align:center;font-size:.8125rem;font-weight:700;color:var(--texto-2);background:var(--superficie-2);border-radius:999px;padding:0 6px;font-variant-numeric:tabular-nums}
 .chip:hover{border-color:var(--texto-2)}
 .chip[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--superficie)}
 .chip[aria-pressed="true"] small{color:inherit;opacity:.8}
@@ -195,7 +216,7 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .chip:disabled{opacity:.45;cursor:default}
 .chip:disabled:hover{border-color:var(--linea)}
 .fila-estado{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;border-top:1px solid var(--linea);padding-top:14px}
-#conteo{margin:0;font-weight:700}
+#conteo{margin:0;font-weight:600}
 .controles-estado{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
 .check{display:inline-flex;align-items:center;gap:8px;font-size:.9375rem;cursor:pointer}
 .check input{width:17px;height:17px;accent-color:var(--tinta)}
@@ -203,10 +224,26 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 
 /* Secciones de talleres (por línea formativa y por horario) */
 [id]{scroll-margin-top:16px}
-.vista{padding-block:30px 10px}
-.vista + .vista{border-top:1px solid var(--linea);margin-top:30px}
+.oferta{padding-block:22px 10px}
+.vista{padding-block:16px 10px}
+.selector-vista{display:flex;gap:2px;overflow-x:auto}
+.selector-fila{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:4px 20px;margin-top:18px;border-bottom:1px solid var(--linea)}
+.selector-fila .fila-estado{border-top:0;padding:0 0 11px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px}
+.selector-fila #conteo{color:var(--texto-2)}
+.selector-vista button{border:0;background:none;padding:12px 18px;font:inherit;font-weight:700;color:var(--texto-2);border-bottom:3px solid transparent;margin-bottom:-1px;cursor:pointer;white-space:nowrap}
+.selector-vista button:hover{color:var(--texto)}
+.selector-vista button[aria-selected="true"]{color:var(--texto);border-bottom-color:var(--tinta)}
+.filtros-rapidos{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px}
+.grupo-rapido{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.grupo-rapido-titulo{font-weight:700;font-size:.9375rem}
+.bloque-nota{font-size:.8125rem;color:var(--texto-2)}
+.dia-lista + .dia-lista{margin-top:18px}
+.dia-lista-titulo{margin:0 0 8px;font-weight:700}
+.lista-bloques{display:grid;gap:8px}
+.lista-bloques .bloque{flex:none}
+.dia-feriado{margin:0;padding:10px 12px;border:1px dashed var(--linea);border-radius:10px;color:var(--texto-2);font-size:.9375rem}
 .vista-titulo{margin:0 0 4px;font-size:clamp(1.4rem,2.6vw,1.75rem);line-height:1.2}
-.vista-intro{margin:0 0 22px;color:var(--texto-2);max-width:75ch}
+.vista-intro{margin:0 0 16px;color:var(--texto-2);max-width:75ch}
 
 /* Elementos compartidos */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:8px;padding:8px 14px;font-weight:700;font-size:.9375rem;text-decoration:none;cursor:pointer;border:1px solid transparent;line-height:1.2;white-space:nowrap}
@@ -217,7 +254,7 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .btn-secundario:hover{border-color:var(--texto-2)}
 .enlace-titulo{border:0;background:none;padding:0;margin:0;text-align:left;cursor:pointer;font-weight:700;color:var(--texto);line-height:inherit}
 .enlace-titulo:hover{text-decoration:underline;text-underline-offset:3px}
-.estado{margin:0;font-size:.8125rem;font-weight:700;display:flex;flex-direction:column;gap:2px}
+.estado{margin:0;font-size:.875rem;font-weight:600;display:flex;flex-direction:column;gap:2px}
 .estado-pronto > span:first-child{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;background:var(--pronto);padding:2px 9px;border-radius:999px}
 .estado-curso,.estado-realizado{color:var(--texto-2)}
 .inscritos{font-weight:400;color:var(--texto-2);display:inline-flex;align-items:center;gap:5px}
@@ -231,27 +268,27 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .grupo-tema h3{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0;font-size:1.2rem}
 .grupo-tema h3 .num-linea{width:26px;height:26px;font-size:.8125rem}
 .grupo-tema h3 span.cuantos{font-family:var(--f-texto);font-weight:400;font-size:.9375rem;color:var(--texto-2)}
-.grupo-tema .linea-completa{margin:4px 0 14px 36px;color:var(--texto-2);font-size:.9375rem;max-width:80ch}
+.grupo-tema .linea-completa{margin:4px 0 14px 38px;color:var(--texto-2);font-size:.9375rem;max-width:80ch}
 .tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:14px}
-.ticket{display:grid;grid-template-columns:76px minmax(0,1fr);background:var(--superficie);border:1px solid var(--linea);border-radius:12px;overflow:hidden}
-.talon{display:flex;flex-direction:column;align-items:center;padding:16px 6px;text-align:center;background:color-mix(in srgb,var(--eje) var(--mezcla),var(--superficie));border-right:2px dashed color-mix(in srgb,var(--eje) 70%,var(--oscurecer))}
+.ticket{display:grid;grid-template-columns:76px minmax(0,1fr);background:var(--superficie);border:1px solid var(--linea);border-left:4px solid color-mix(in srgb,var(--eje) 85%,var(--oscurecer));border-radius:12px;overflow:hidden}
+.talon{display:flex;flex-direction:column;align-items:center;padding:16px 6px;text-align:center;background:var(--superficie-2);border-right:2px dashed var(--linea)}
 .talon-dia{font-size:.8125rem;color:var(--texto-2)}
 .talon-num{font-family:var(--f-titulo);font-size:2rem;font-weight:800;line-height:1;margin:3px 0 2px;font-variant-numeric:tabular-nums}
 .talon-mes{font-size:.875rem;font-weight:700}
-.talon-mas{margin-top:10px;font-size:.75rem;line-height:1.2;color:var(--texto-2)}
+.talon-mas{margin-top:10px;font-size:.8125rem;line-height:1.2;color:var(--texto-2)}
 .ticket-cuerpo{display:flex;flex-direction:column;gap:9px;padding:14px 16px;min-width:0}
 .ticket-titulo{margin:0;font-size:1.0625rem;line-height:1.3}
 .ticket-titulo .enlace-titulo{font-family:var(--f-titulo);font-weight:700}
-.extracto{margin:0;font-size:.9375rem;color:var(--texto);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.extracto-lista{margin:0;padding:0;list-style:none;font-size:.9375rem}
+.extracto{margin:0;font-size:.9375rem;color:var(--texto-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.extracto-lista{margin:0;padding:0;list-style:none;font-size:.9375rem;color:var(--texto-2)}
 .extracto-lista li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.extracto-lista li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 9px 2px 2px;vertical-align:middle;background:color-mix(in srgb,var(--eje) 85%,var(--oscurecer))}
+.extracto-lista li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 9px 2px 2px;vertical-align:middle;background:var(--texto-2)}
 .extracto-lista li.mas{color:var(--texto-2);font-size:.875rem}
 .extracto-lista li.mas::before{visibility:hidden}
 .meta{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.875rem;color:var(--texto-2)}
 .meta li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:8px;align-items:start}
 .meta svg{margin-top:3px}
-.ticket-pie{margin-top:auto;padding-top:11px;border-top:1px solid var(--linea);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.ticket-pie{margin-top:auto;padding-top:12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
 .acciones{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
 
 /* Semanas (vista por horario) */
@@ -264,11 +301,11 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .grilla{width:100%;min-width:780px;table-layout:fixed;border-collapse:separate;border-spacing:6px}
 .grilla col.col-franja{width:104px}
 .grilla thead th{text-align:left;font-size:.875rem;font-weight:700;padding:4px 6px;font-family:var(--f-texto)}
-.grilla thead th small{margin-left:6px;font-size:.75rem;font-weight:700;background:var(--tinta);color:var(--superficie);border-radius:999px;padding:1px 7px}
+.grilla thead th small{margin-left:6px;font-size:.8125rem;font-weight:700;background:var(--tinta);color:var(--superficie);border-radius:999px;padding:1px 7px}
 .grilla thead th.feriado{color:var(--texto-2);font-style:italic}
 .grilla thead th.pasado{color:var(--texto-2);font-weight:400}
 .grilla tbody th{text-align:left;vertical-align:top;font-size:.875rem;padding:8px 4px;font-family:var(--f-texto)}
-.grilla tbody th small{display:block;color:var(--texto-2);font-weight:400;font-size:.75rem}
+.grilla tbody th small{display:block;color:var(--texto-2);font-weight:400;font-size:.8125rem}
 .grilla td{padding:0;vertical-align:top;height:1px}
 .grilla-celda{height:100%;min-height:96px;border-radius:10px;border:1px dashed var(--linea);display:flex;flex-direction:column;gap:6px}
 .grilla-celda.llena{border:0}
@@ -277,16 +314,16 @@ td.hoy .celda{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
 .grilla-feriado b{color:var(--texto);font-family:var(--f-titulo)}
 .grilla-feriado span{font-size:.8125rem}
 .bloque{position:relative;flex:1;display:flex;flex-direction:column;gap:5px;text-align:left;border-radius:10px;padding:10px 10px 10px 14px;color:var(--texto);
-  background:color-mix(in srgb,var(--eje) var(--mezcla),var(--superficie));box-shadow:inset 5px 0 0 color-mix(in srgb,var(--eje) 85%,var(--oscurecer))}
-.bloque:hover{background:color-mix(in srgb,var(--eje) calc(var(--mezcla) + 10%),var(--superficie))}
-.bloque-hora{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--texto-2);font-variant-numeric:tabular-nums}
-.bloque-hora .num-linea{width:17px;height:17px;font-size:.625rem}
-.bloque-titulo{border:0;background:none;padding:0;margin:0;text-align:left;cursor:pointer;color:var(--texto);font-weight:700;font-size:.875rem;line-height:1.25}
+  background:var(--superficie);border:1px solid var(--linea);box-shadow:inset 4px 0 0 color-mix(in srgb,var(--eje) 85%,var(--oscurecer))}
+.bloque:hover{background:var(--superficie-2)}
+.bloque-hora{display:flex;align-items:center;gap:6px;font-size:.8125rem;color:var(--texto-2);font-variant-numeric:tabular-nums}
+.bloque-hora .num-linea{width:20px;height:20px;font-size:.6875rem}
+.bloque-titulo{border:0;background:none;padding:0;margin:0;text-align:left;cursor:pointer;color:var(--texto);font-weight:600;font-size:.9375rem;line-height:1.3}
 .bloque-titulo .clamp{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .bloque-titulo::after{content:"";position:absolute;inset:0;border-radius:10px}
 .bloque-titulo:focus-visible{outline:none}
 .bloque-titulo:focus-visible::after{outline:3px solid var(--foco);outline-offset:2px}
-.bloque-meta{font-size:.75rem;color:var(--texto-2)}
+.bloque-meta{font-size:.8125rem;color:var(--texto-2)}
 .bloque .btn{position:relative;z-index:1;align-self:flex-start;margin-top:auto}
 .bloque .nota-estado{margin-top:auto}
 .btn-chico{padding:6px 11px;font-size:.8125rem;border-radius:7px;gap:6px}
@@ -343,58 +380,67 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
 </div>
 
 <header class="banda">
-  <div class="contenedor">
-    <p class="organiza" id="organiza"></p>
-    <h1 id="titulo-ciclo"></h1>
-    <p class="periodo" id="periodo"></p>
-    <p class="presentacion" id="presentacion"></p>
-    <p class="cifras" id="cifras"></p>
-    <ul class="indice" aria-label="En esta página">
-      <li><a href="#participar">Antes de inscribirte</a></li>
-      <li><a href="#por-linea">Talleres por línea formativa</a></li>
-      <li><a href="#por-horario">Talleres por horario</a></li>
-      <li><a href="#calendario">Calendario del ciclo</a></li>
-    </ul>
+  <div class="contenedor cabecera">
+    <div class="cabecera-texto">
+      <p class="organiza" id="organiza"></p>
+      <h1 id="titulo-ciclo"></h1>
+      <p class="periodo" id="periodo"></p>
+      <p class="cifras" id="cifras"></p>
+      <div class="cabecera-acciones">
+        <a class="btn btn-claro" href="#oferta">Ver talleres</a>
+        <a class="enlace-banda" href="#calendario">Calendario del ciclo</a>
+      </div>
+      <details class="sobre-ciclo" id="sobre-ciclo">
+        <summary>Sobre el ciclo</summary>
+        <p class="presentacion" id="presentacion"></p>
+      </details>
+    </div>
+    <section class="participar" id="participar" aria-labelledby="participar-titulo">
+      <details class="participar-plegable" id="participar-plegable" open>
+        <summary><h2 id="participar-titulo">Antes de inscribirte</h2></summary>
+        <dl class="participar-lista" id="participar-lista"></dl>
+      </details>
+    </section>
   </div>
 </header>
 
 <main class="contenedor">
-  <section class="participar" id="participar" aria-labelledby="participar-titulo">
-    <h2 id="participar-titulo">Antes de inscribirte</h2>
-    <dl class="participar-lista" id="participar-lista"></dl>
-  </section>
-  <section class="herramientas" aria-label="Búsqueda y filtros">
-    <div class="fila-busqueda">
-      <div class="buscador">
-        <label for="q">Buscar un taller</label>
-        <div class="campo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
-          <input id="q" type="search" placeholder="Por ejemplo: rúbricas, inclusión, IA" autocomplete="off">
+  <section class="oferta" id="oferta" aria-labelledby="titulo-oferta">
+    <h2 class="vista-titulo" id="titulo-oferta">Talleres disponibles</h2>
+    <div class="herramientas" role="search" aria-label="Búsqueda y filtros">
+      <div class="fila-busqueda">
+        <div class="buscador">
+          <label for="q" class="sr-only">Buscar un taller</label>
+          <div class="campo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+            <input id="q" type="search" placeholder="Por ejemplo: rúbricas, inclusión, IA" autocomplete="off">
+          </div>
         </div>
+        <button type="button" class="btn btn-secundario boton-filtros" id="boton-filtros" aria-expanded="false" aria-controls="grupos">Más filtros</button>
       </div>
-      <button type="button" class="btn btn-secundario boton-filtros" id="boton-filtros" aria-expanded="false" aria-controls="grupos">Filtros</button>
+      <div class="filtros-rapidos" id="filtros-rapidos"></div>
+      <div class="grupos" id="grupos"></div>
     </div>
-    <div class="grupos" id="grupos"></div>
-    <div class="fila-estado">
-      <p id="conteo" aria-live="polite"></p>
-      <div class="controles-estado">
+
+    <div class="selector-fila">
+      <div class="selector-vista" role="tablist" aria-label="Ver los talleres">
+        <button type="button" role="tab" id="tab-linea" data-vista="linea" aria-controls="por-linea" aria-selected="true">Por línea formativa</button>
+        <button type="button" role="tab" id="tab-horario" data-vista="horario" aria-controls="por-horario" aria-selected="false" tabindex="-1">Por horario</button>
+      </div>
+      <div class="fila-estado">
+        <p id="conteo" aria-live="polite"></p>
         <button type="button" class="btn-texto" id="limpiar" hidden>Limpiar filtros</button>
       </div>
     </div>
+    <div class="vista" id="por-linea" role="tabpanel" aria-labelledby="tab-linea">
+      <p class="vista-intro">Cada taller aporta a una línea formativa: un ámbito del Marco para la Buena Docencia UDP.</p>
+      <div id="panel-linea"></div>
+    </div>
+    <div class="vista" id="por-horario" role="tabpanel" aria-labelledby="tab-horario" hidden>
+      <p class="vista-intro">Cada bloque es una sesión, con su botón de inscripción. En los talleres de varias sesiones, la inscripción es siempre al taller completo.</p>
+      <div id="panel-horario"></div>
+    </div>
   </section>
-
-  <section class="vista" id="por-linea" aria-labelledby="titulo-por-linea">
-    <h2 class="vista-titulo" id="titulo-por-linea">Talleres por línea formativa</h2>
-    <p class="vista-intro">Talleres agrupados según la línea del Marco para la Buena Docencia a la que aportan.</p>
-    <div id="panel-linea"></div>
-  </section>
-
-  <section class="vista" id="por-horario" aria-labelledby="titulo-por-horario">
-    <h2 class="vista-titulo" id="titulo-por-horario">Talleres por horario</h2>
-    <p class="vista-intro">Cada bloque es una sesión, con su botón de inscripción. Selecciona el título para ver la ficha completa.</p>
-    <div id="panel-horario"></div>
-  </section>
-
 </main>
 
 <section class="banda banda-final" id="calendario" aria-labelledby="tablero-titulo">
@@ -431,7 +477,7 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
   "zonaHoraria": "America/Santiago",
   "fechaApertura": "2026-06-30",
   "fuente": "Gestión equipo Talleres julio 2026",
-  "generado": "2026-11-19"
+  "generado": "2026-11-20"
  },
  "lineas": [
   {
@@ -500,6 +546,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "¿Cómo hablan los Large Language Model (LLM)?"
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Alberto Ramírez Martinell",
@@ -571,6 +619,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Materiales y recursos para favorecer el aprendizaje de estudiantes en el EA."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Felipe Rojas Soto",
@@ -645,6 +695,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Explorar una estructura de prompt, sus principios de construcción efectiva y casos de uso con ChatGPT, Gemini y chatbots educativos."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Nicolás Olguín Aguilera",
@@ -729,6 +781,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Ejercicio de planificación de una clase aplicando lo aprendido."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Benjamín Astudillo Ganora",
@@ -819,6 +873,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
    "requerimientos": [
     "Se solicita tener disponible algún instrumento de evaluación utilizado en el semestre, en particular alguna rúbrica si la tuviera."
    ],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Ruth Arce Jara",
@@ -907,6 +963,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Accesibilidad cognitiva."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Felipe Rojas Soto",
@@ -1004,6 +1062,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Desarrollo de estrategias de evaluación para intencionar procesos de aprendizaje dinámicos y colaborativos."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Bernardita Urzúa",
@@ -1093,6 +1153,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
    "requerimientos": [
     "Se solicita llevar el programa de asignatura y computador personal."
    ],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Daniela Díaz",
@@ -1189,6 +1251,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
    "descripcion": "Este taller abordará el proceso de investigación en docencia universitaria a partir del desarrollo de proyectos de innovación transformados en productos investigativos. A través de una metodología práctica, se explorará cómo utilizar herramientas de inteligencia artificial para fortalecer la calidad metodológica, la sistematización de datos y la replicabilidad de los hallazgos. Se reflexionará sobre los desafíos epistemológicos y éticos del uso de IA en el marco de la investigación en docencia, considerando su capacidad para potenciar la construcción de conocimiento situado y riguroso en contextos universitarios.",
    "contenidos": [],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Dra. Isadora Reynolds C.",
@@ -1284,6 +1348,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
    "descripcion": "Este taller propone un espacio práctico y guiado para que docentes diseñen una actividad de aprendizaje con enfoque inter o transdisciplinar aplicada a sus propios cursos. Se trabajará paso a paso en la formulación de un problema complejo, la articulación de saberes desde distintas disciplinas y la construcción de una actividad que promueva la integración de perspectivas en el aula. El propósito es que cada participante finalice la sesión con un diseño listo para ser implementado, acompañado de herramientas metodológicas simples, ejemplos aplicados y criterios básicos para evaluar la integración disciplinar en los aprendizajes estudiantiles.",
    "contenidos": [],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Laura Encalada",
@@ -1379,6 +1445,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
    "descripcion": "Uso del inglés en contextos académicos semiformales. Expresiones de uso común para interactuar con otros/as académicos/as. Aspectos paralingüísticos para una comunicación e integración efectiva en instancias semiformales. Metodología PBA: simulación de situaciones, identificación de necesidades, entrega de conocimientos y herramientas para su solución.",
    "contenidos": [],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Marcela Palominos",
@@ -1486,6 +1554,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Estrategias de enseñanza para la docencia en primer año."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Isabel Ramos Moore",
@@ -1598,6 +1668,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Diseño de proyectos de docencia con enfoque de Aprendizaje vinculado al medio."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Nicolás Peña Fredes",
@@ -1713,6 +1785,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Sesión 2. Estrategias prácticas e instrumentos para el aula: taxonomía de ajustes y diversificación de formatos; el estudiante como socio (codiseño y aprendizaje dialógico); rúbricas inclusivas en la evaluación por competencias; herramientas de seguimiento del clima y avance grupal."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Miriam Ferrando",
@@ -1824,6 +1898,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
    "descripcion": "El taller está orientado a entregar orientaciones sobre salud mental universitaria, presentando datos generales y del Departamento de Salud Mental Estudiantil. Además, se entregarán herramientas para identificar señales de alerta en estudiantes, fomentar ambientes de aprendizaje saludables y conocer estrategias de autocuidado. Se realizará una metodología participativa con la finalidad de conocer buenas prácticas docentes en temáticas de salud mental orientadas al estudiantado.",
    "contenidos": [],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Nicole Martínez",
@@ -1952,6 +2028,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Explicar y enseñar sobre la metodología «Collaborative Online International Learning - COIL» como una modalidad del intercambio virtual anclado dentro de una asignatura existente: su uso, alcances y beneficios para una docencia con sello internacional."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Carlos Ahumada Benavides",
@@ -2078,6 +2156,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Espacio de preguntas."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Salvador Bello Schlack",
@@ -2197,6 +2277,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
    "descripcion": "Este taller introduce el uso de herramientas de IA generativa de imagen y video como apoyo a la creación de recursos educativos basados en narrativa audiovisual. A partir de ideas, microrrelatos o contenidos disciplinares, las y los participantes explorarán cómo transformar conceptos académicos en secuencias visuales breves, combinando guion, generación de imágenes, uso de referencias, animación y edición. El taller propone un acercamiento práctico, orientado a docentes que buscan enriquecer sus clases.",
    "contenidos": [],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Arturo Quezada",
@@ -2326,6 +2408,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Recursos pedagógicos socioemocionales que se pueden incorporar en las planificaciones de clases."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Sergio Rodrigo Sanhueza Jara",
@@ -2462,6 +2546,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     "Movimientos discursivos que impulsan la discusión entre los estudiantes."
    ],
    "requerimientos": [],
+   "dirigido": "",
+   "cupos": null,
    "relatores": [
     {
      "nombre": "Silvana De La Hoz Ibacache",
@@ -2657,7 +2743,7 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     return {
       n: t.n, titulo: t.titulo, linea: l.id, unidad: t.unidad || '', modalidad: t.modalidad || '', inscripcion: t.inscripcion || '',
       descripcion: t.descripcion || '', contenidos: t.contenidos || [], requerimientos: t.requerimientos || [], relatores: relatores,
-      serie: t.serie || [], inscritos: t.inscritos, sesiones: sesiones,
+      serie: t.serie || [], inscritos: t.inscritos, sesiones: sesiones, dirigido: t.dirigido || '', cupos: t.cupos || null,
       primera: sesiones[0].ini, ultima: sesiones[sesiones.length - 1].finD,
       minTot: sesiones.reduce(function (a, s) { return a + s.min; }, 0),
       texto: ' ' + normalizar([t.titulo, t.descripcion, (t.contenidos || []).join(' '), relatores.map(function (r) { return r.nombre; }).join(' '),
@@ -2698,7 +2784,7 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
 
   var state = {
     q: '', sel: { linea: [], modalidad: [], franja: [], formato: [] },
-    verInscritos: false,
+    verInscritos: false, vista: 'linea',
     ref: parseFecha(PRESETS[0].fecha, '09:00')
   };
 
@@ -2724,10 +2810,10 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
   var GRUPOS = [
     { id: 'linea', nombre: 'Línea formativa del Marco para la Buena Docencia', opciones: LINEAS.map(function (l) { return { id: String(l.id), nombre: l.corto, linea: l }; }),
       test: function (t, v) { return String(t.linea) === v; } },
-    { id: 'modalidad', nombre: 'Modalidad', opciones: MODALIDADES.map(function (m) { return { id: m, nombre: m }; }),
-      test: function (t, v) { return t.modalidad === v; } },
-    { id: 'franja', nombre: 'Jornada', opciones: FRANJAS.map(function (f) { return { id: f.id, nombre: f.nombre, nota: f.ref }; }),
+    { id: 'franja', nombre: 'Horario', rapido: true, opciones: FRANJAS.map(function (f) { return { id: f.id, nombre: f.nombre, nota: f.ref }; }),
       test: function (t, v) { return t.sesiones.some(function (s) { return s.franja === v; }); } },
+    { id: 'modalidad', nombre: 'Modalidad', rapido: true, opciones: MODALIDADES.map(function (m) { return { id: m, nombre: m }; }),
+      test: function (t, v) { return t.modalidad === v; } },
     { id: 'formato', nombre: 'Duración', opciones: [{ id: 'unica', nombre: 'Sesión única' }, { id: 'varias', nombre: 'Varias sesiones' }].filter(function (o) {
         return TALLERES.some(function (t) { return o.id === 'unica' ? t.sesiones.length === 1 : t.sesiones.length > 1; });
       }),
@@ -2778,16 +2864,19 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     return capital(unirY(dias.map(fechaLarga)));
   }
   function lineasMeta(t) {
-    var out = [];
-    if (mismoHorario(t)) {
-      out.push([ICON.cal, fechasTexto(t)]);
-      out.push([ICON.reloj, t.sesiones[0].inicio + ' a ' + t.sesiones[0].fin + ' (' + textoDuracion(t) + ')']);
+    var ss = t.sesiones, n = ss.length, mismo = mismoHorario(t), out = [];
+    out.push([ICON.reloj, ss[0].inicio + ' a ' + ss[0].fin + (n > 1 && !mismo ? ' (sesión 1)' : '') + ', ' + t.modalidad.toLowerCase()]);
+    if (n === 1) {
+      out.push([ICON.cal, 'Sesión única (' + horas(t.minTot) + ')']);
     } else {
-      t.sesiones.forEach(function (s) { out.push([ICON.cal, capital(fechaLarga(s.ini)) + ', ' + s.inicio + ' a ' + s.fin]); });
-      out.push([ICON.reloj, capital(textoDuracion(t))]);
+      var despues = ss.slice(1).map(function (s) {
+        var f = claveDia(s.ini) === claveDia(ss[0].ini) ? 'el mismo día' : DIAS_C[s.ini.getDay()] + ' ' + s.ini.getDate() + ' ' + MESES_C[s.ini.getMonth()];
+        return mismo ? f : f + ', ' + s.inicio + ' a ' + s.fin;
+      });
+      out.push([ICON.cal, n + ' sesiones (' + horas(t.minTot) + '). Después: ' + unirY(despues)]);
     }
-    out.push([t.modalidad === 'Presencial' ? ICON.sala : ICON.video, t.modalidad]);
-    if (t.relatores.length) out.push([ICON.persona, t.relatores.map(function (r) { return r.nombre; }).join(', ')]);
+    if (t.dirigido) out.push([ICON.grupo, 'Dirigido a ' + t.dirigido.replace(/\.$/, '')]);
+    if (t.cupos) out.push([ICON.grupo, t.cupos + ' cupos']);
     return out;
   }
   function inscritosHTML(t) {
@@ -2804,13 +2893,19 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     return '<a class="btn btn-primario' + (chico ? ' btn-chico' : '') + '" href="' + esc(t.inscripcion) + '" target="_blank" rel="noopener noreferrer">Inscribirme' + ICON.externo +
       '<span class="sr-only"> en ' + esc(t.titulo) + ' (el formulario se abre en otra pestaña)</span></a>';
   }
+  function estadoTalon(t, e) {
+    // En el talón, el estado solo aparece cuando aporta: pronto a comenzar o, en el prototipo, los inscritos
+    var ins = inscritosHTML(t);
+    if (e.codigo !== 'pronto' && !ins) return '';
+    return '<p class="estado estado-' + e.codigo + '">' + (e.codigo === 'pronto' ? '<span>' + ICON.pronto + esc(e.etiqueta) + '</span>' : '') + ins + '</p>';
+  }
   function extracto(t) {
     var d = t.descripcion;
     if (d && !(/:\s*$/.test(d) && d.length < 90)) return '<p class="extracto">' + esc(d.replace(/\s*[^.]*:\s*$/, '')) + '</p>';
     if (!t.contenidos.length) return '';
-    var max = 3, items = t.contenidos.slice(0, max).map(function (c) { return '<li>' + esc(c.replace(/\.$/, '')) + '</li>'; }).join('');
+    var max = 2, items = t.contenidos.slice(0, max).map(function (c) { return '<li>' + esc(c.replace(/\.$/, '')) + '</li>'; }).join('');
     var resto = t.contenidos.length - max;
-    return '<ul class="extracto-lista">' + items + (resto > 0 ? '<li class="mas">y ' + plural(resto, 'tema más', 'temas más') + '</li>' : '') + '</ul>';
+    return '<ul class="extracto-lista">' + items + '</ul>';
   }
   function enlaceCalendario(t, s) {
     var f = function (d) { return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + 'T' + pad(d.getHours()) + pad(d.getMinutes()) + '00'; };
@@ -2833,7 +2928,7 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     $('#periodo').textContent = periodo;
     document.title = (CICLO.nombre || 'Oferta de talleres') + ', ' + periodo.toLowerCase();
     $('#presentacion').textContent = CICLO.presentacion || '';
-    $('#presentacion').hidden = !CICLO.presentacion;
+    $('#sobre-ciclo').hidden = !CICLO.presentacion;
     var modos = MODALIDADES.map(function (m) { var n = TALLERES.filter(function (t) { return t.modalidad === m; }).length; return n + ' ' + modalidadPlural(m, n); });
     $('#cifras').textContent = plural(TALLERES.length, 'taller', 'talleres') + ' y ' + plural(TODAS.length, 'sesión', 'sesiones') + ' entre el ' + fechaLarga(INICIO_CICLO) +
       ' y el ' + fechaLarga(FIN_CICLO) + ', en ' + plural(FRANJAS.length, 'jornada', 'jornadas') + ' (' + unirY(FRANJAS.map(function (f) { return f.nombre.toLowerCase(); })) + '): ' + unirY(modos) + '.';
@@ -2845,10 +2940,12 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     var items = [
       ['Quiénes pueden participar', CICLO.dirigido_a],
       ['Inscripción', CICLO.inscripcion],
-      ['Modalidad', CICLO.modalidad]
+      ['Modalidad', CICLO.modalidad],
+      ['Certificación', CICLO.certificacion]
     ].filter(function (x) { return x[1]; });
     $('#participar-lista').innerHTML = items.map(function (x) { return '<div><dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd></div>'; }).join('');
     $('#participar').hidden = !items.length;
+    if (window.matchMedia && window.matchMedia('(max-width: 1000px)').matches) $('#participar-plegable').open = false;
 
     var participan = String(CICLO.participan || '').split(';').map(function (s) { return s.trim(); }).filter(Boolean);
     $('#pie-participan').textContent = participan.length ? 'Participan en la implementación: ' + unirY(participan) + '.' : '';
@@ -2920,13 +3017,19 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
   }
 
   /* ---------- Filtros ---------- */
+  function chipsDe(g) {
+    return '<div class="chips">' + g.opciones.map(function (o) {
+      return '<button type="button" class="chip" data-grupo="' + g.id + '" data-valor="' + esc(o.id) + '" aria-pressed="false">' +
+        (o.linea ? numLinea(o.linea) : '') + '<span class="chip-nombre">' + esc(o.nombre) + '</span>' +
+        (o.nota ? '<small>' + esc(o.nota) + '</small>' : '') + '<span class="cuenta"></span></button>';
+    }).join('') + '</div>';
+  }
   function construirFiltros() {
-    $('#grupos').innerHTML = GRUPOS.map(function (g) {
-      return '<fieldset class="grupo grupo-' + g.id + '"><legend>' + g.nombre + '</legend><div class="chips">' + g.opciones.map(function (o) {
-        return '<button type="button" class="chip" data-grupo="' + g.id + '" data-valor="' + esc(o.id) + '" aria-pressed="false">' +
-          (o.linea ? numLinea(o.linea) : '') + '<span class="chip-nombre">' + esc(o.nombre) + '</span>' +
-          (o.nota ? '<small>' + esc(o.nota) + '</small>' : '') + '<span class="cuenta"></span></button>';
-      }).join('') + '</div></fieldset>';
+    $('#filtros-rapidos').innerHTML = GRUPOS.filter(function (g) { return g.rapido; }).map(function (g) {
+      return '<div class="grupo-rapido" role="group" aria-label="' + esc(g.nombre) + '"><span class="grupo-rapido-titulo" aria-hidden="true">' + esc(g.nombre) + '</span>' + chipsDe(g) + '</div>';
+    }).join('');
+    $('#grupos').innerHTML = GRUPOS.filter(function (g) { return !g.rapido; }).map(function (g) {
+      return '<fieldset class="grupo grupo-' + g.id + '"><legend>' + g.nombre + '</legend>' + chipsDe(g) + '</fieldset>';
     }).join('');
   }
   function actualizarFiltros() {
@@ -2940,8 +3043,8 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
       b.setAttribute('aria-label', pre + b.querySelector('.chip-nombre').textContent + (nota ? ' ' + nota.textContent : '') + ', ' + plural(n, 'taller', 'talleres'));
     });
     $('#limpiar').hidden = !hayFiltros();
-    var nf = nFiltros();
-    $('#boton-filtros').textContent = nf ? 'Filtros (' + nf + ')' : 'Filtros';
+    var nf = GRUPOS.reduce(function (a, g) { return a + (g.rapido ? 0 : state.sel[g.id].length); }, 0);
+    $('#boton-filtros').textContent = nf ? 'Más filtros (' + nf + ')' : 'Más filtros';
   }
   function pintarConteo(lista) {
     var base = TALLERES.filter(function (t) { return estado(t).abierto; }).length, txt;
@@ -2965,10 +3068,9 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
       '<div class="talon" aria-hidden="true"><span class="talon-dia">' + DIAS_C[s0.ini.getDay()] + '</span><span class="talon-num">' + s0.ini.getDate() +
       '</span><span class="talon-mes">' + MESES_C[s0.ini.getMonth()] + '</span>' + (mas ? '<span class="talon-mas">+' + plural(mas, 'sesión', 'sesiones') + '</span>' : '') + '</div>' +
       '<div class="ticket-cuerpo">' +
-      '<h3 class="ticket-titulo"><button type="button" class="enlace-titulo" data-abrir="' + t.n + '">' + esc(t.titulo) + '</button></h3>' + extracto(t) +
+      '<h3 class="ticket-titulo"><button type="button" class="enlace-titulo" data-abrir="' + t.n + '" title="Ver la ficha del taller">' + esc(t.titulo) + '</button></h3>' + extracto(t) +
       '<ul class="meta">' + lineasMeta(t).map(function (m) { return '<li>' + m[0] + '<span>' + esc(m[1]) + '</span></li>'; }).join('') + '</ul>' +
-      '<div class="ticket-pie">' + estadoHTML(t, e) + '<div class="acciones"><button type="button" class="btn btn-secundario" data-abrir="' + t.n + '">Ver ficha<span class="sr-only"> de ' + esc(t.titulo) + '</span></button>' +
-      botonInscripcion(t, e) + '</div></div></div></article>';
+      '<div class="ticket-pie">' + estadoTalon(t, e) + '<div class="acciones">' + botonInscripcion(t, e) + '</div></div></div></article>';
   }
   function vistaTema(lista) {
     return LINEAS.concat([SIN_LINEA]).map(function (l) {
@@ -2990,9 +3092,27 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
       '<span class="bloque-hora">' + numLinea(l) + s.inicio + ' a ' + s.fin + '</span>' +
       '<button type="button" class="bloque-titulo" data-abrir="' + t.n + '"><span class="clamp">' + esc(t.titulo) + '</span></button>' +
       '<span class="bloque-meta">' + textoSesion(t, s) + ', ' + esc(t.modalidad.toLowerCase()) + '</span>' +
+      (t.sesiones.length > 1 ? '<span class="bloque-nota">Inscripción al taller completo (' + t.sesiones.length + ' sesiones)</span>' : '') +
       botonInscripcion(t, e, true) + '</div>';
   }
+  var MOVIL = window.matchMedia ? window.matchMedia('(max-width: 760px)') : { matches: false };
+  function vistaHorarioLista(lista) {
+    var visibles = {}, hoy0 = inicioDia(state.ref);
+    lista.forEach(function (t) { visibles[t.n] = 1; });
+    return SEMANAS.map(function (w) {
+      var porDia = w.dias.map(function (d) { return TODAS.filter(function (x) { return visibles[x.t.n] && difDias(x.s.ini, d) === 0; }); });
+      if (!porDia.some(function (xs) { return xs.length; })) return '';
+      return '<section class="semana" aria-labelledby="sl-' + w.k + '"><h3 class="semana-titulo" id="sl-' + w.k + '">Semana ' + w.k + '<span>' + rangoSemana(w) + '</span></h3>' +
+        porDia.map(function (xs, j) {
+          var d = w.dias[j], fer = FERIADO[claveDia(d)];
+          if (!xs.length && fer && d >= hoy0) return '<div class="dia-lista"><p class="dia-lista-titulo">' + capital(fechaLarga(d)) + '</p><p class="dia-feriado">Feriado: ' + esc(fer) + '. No hay talleres.</p></div>';
+          if (!xs.length) return '';
+          return '<div class="dia-lista"><p class="dia-lista-titulo">' + capital(fechaLarga(d)) + (difDias(d, state.ref) === 0 ? ' (hoy)' : '') + '</p><div class="lista-bloques">' + xs.map(bloque).join('') + '</div></div>';
+        }).join('') + '</section>';
+    }).join('');
+  }
   function vistaHorario(lista) {
+    if (MOVIL.matches) return vistaHorarioLista(lista);
     var visibles = {};
     lista.forEach(function (t) { visibles[t.n] = 1; });
     var celda = function (d, f) { return (CELDAS[claveDia(d) + '|' + f.id] || []).filter(function (x) { return visibles[x.t.n]; }); };
@@ -3019,10 +3139,11 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     }).join('');
   }
   function pintarPanel(lista) {
-    // Primero los talleres por línea formativa y luego por horario (la vista por fecha se eliminó)
-    $('#panel-linea').innerHTML = lista.length ? vistaTema(lista) : vacio();
-    $('#panel-horario').innerHTML = lista.length ? vistaHorario(lista) : '';
-    $('#por-horario').hidden = !lista.length;
+    var hay = lista.length > 0;
+    $('#panel-linea').innerHTML = hay ? vistaTema(lista) : vacio();
+    $('#panel-horario').innerHTML = hay ? vistaHorario(lista) : vacio();
+    $('#por-linea').hidden = state.vista !== 'linea';
+    $('#por-horario').hidden = state.vista !== 'horario';
   }
 
   var dlg = $('#detalle'), origen = null, abierto = null;
@@ -3043,6 +3164,9 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     var info = [];
     if (t.unidad) info.push('Taller liderado por ' + conArticulo(t.unidad) + '.');
     info.push(textoConsta(t));
+    if (t.sesiones.length > 1) info.push('La inscripción es para el taller completo: ' + t.sesiones.length + ' sesiones.');
+    if (t.dirigido) info.push('Dirigido a ' + t.dirigido.replace(/\.$/, '') + '.');
+    if (t.cupos) info.push('Cupos: ' + t.cupos + '.');
     info.push('Se dictará en modalidad ' + t.modalidad.toLowerCase() + '. ' + (t.modalidad === 'Presencial' ? 'La sala se informa por correo a las personas inscritas.' : 'El enlace de conexión se envía por correo a las personas inscritas.'));
     info = info.concat(t.requerimientos);
     var trata = (t.descripcion ? '<p>' + esc(t.descripcion) + '</p>' : '') +
@@ -3121,7 +3245,7 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     var acc = ev.target.closest('[data-accion]');
     if (acc && acc.dataset.accion === 'limpiar') limpiar();
   });
-  $('#grupos').addEventListener('click', function (ev) {
+  $('.herramientas').addEventListener('click', function (ev) {
     var b = ev.target.closest('.chip');
     if (!b || b.disabled) return;
     var arr = state.sel[b.dataset.grupo], v = b.dataset.valor, j = arr.indexOf(v);
@@ -3136,6 +3260,34 @@ dialog::backdrop{background:rgba(30,10,30,.6)}
     var abiertoF = $('#grupos').classList.toggle('abierto');
     this.setAttribute('aria-expanded', abiertoF ? 'true' : 'false');
   });
+
+  function setVista(v, foco) {
+    state.vista = v === 'horario' ? 'horario' : 'linea';
+    $$('.selector-vista [role="tab"]').forEach(function (t) {
+      var on = t.dataset.vista === state.vista;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      if (on && foco) t.focus();
+    });
+    $('#por-linea').hidden = state.vista !== 'linea';
+    $('#por-horario').hidden = state.vista !== 'horario';
+  }
+  $('.selector-vista').addEventListener('click', function (ev) { var b = ev.target.closest('[role="tab"]'); if (b) setVista(b.dataset.vista); });
+  $('.selector-vista').addEventListener('keydown', function (ev) {
+    if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].indexOf(ev.key) < 0) return;
+    ev.preventDefault();
+    var otra = state.vista === 'linea' ? 'horario' : 'linea';
+    setVista(ev.key === 'Home' ? 'linea' : (ev.key === 'End' ? 'horario' : otra), true);
+  });
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest('a[href="#por-linea"], a[href="#por-horario"]');
+    if (!a) return;
+    ev.preventDefault();
+    setVista(a.getAttribute('href') === '#por-horario' ? 'horario' : 'linea');
+    $('#oferta').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  if (location.hash === '#por-horario') setVista('horario');
+  if (MOVIL.addEventListener) MOVIL.addEventListener('change', function () { render(); });
 
   /* ---------- Barra de prototipo (se elimina al publicar) ---------- */
   if (PUB) {
